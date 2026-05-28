@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+*.whl
+*.tar.gz
+MANIFEST
+
+# Environments
+.env
+.venv
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Testing
+.tox/
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Spydra runtime
+.spydra_cache/
+*.sqlite
+*.db
+spydra.egg-info/
