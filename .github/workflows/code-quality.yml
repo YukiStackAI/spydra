@@ -65,8 +65,8 @@ jobs:
         continue-on-error: true
         run: |
           echo "::group::Bandit - Security Linter"
-          bandit -r -c .bandit.yml scrapling/ -f json -o bandit-report.json
-          bandit -r -c .bandit.yml scrapling/
+          bandit -r -c .bandit.yml spydra/ -f json -o bandit-report.json
+          bandit -r -c .bandit.yml spydra/
           echo "::endgroup::"
 
       - name: Run Ruff Linter
@@ -74,7 +74,7 @@ jobs:
         continue-on-error: true
         run: |
           echo "::group::Ruff - Linter"
-          ruff check scrapling/ --output-format=github
+          ruff check spydra/ --output-format=github
           echo "::endgroup::"
 
       - name: Run Ruff Formatter Check
@@ -82,7 +82,7 @@ jobs:
         continue-on-error: true
         run: |
           echo "::group::Ruff - Formatter Check"
-          ruff format --check scrapling/ --diff
+          ruff format --check spydra/ --diff
           echo "::endgroup::"
 
       - name: Run Vermin (Python Version Compatibility)
@@ -90,7 +90,7 @@ jobs:
         continue-on-error: true
         run: |
           echo "::group::Vermin - Python 3.10+ Compatibility Check"
-          vermin -t=3.10- --violations --eval-annotations --no-tips scrapling/
+          vermin -t=3.10- --violations --eval-annotations --no-tips spydra/
           echo "::endgroup::"
 
       - name: Run Mypy (Static Type Checker)
@@ -98,7 +98,7 @@ jobs:
         continue-on-error: true
         run: |
           echo "::group::Mypy - Static Type Checker"
-          mypy scrapling/
+          mypy spydra/
           echo "::endgroup::"
 
       - name: Run Pyright (Static Type Checker)
@@ -106,7 +106,7 @@ jobs:
         continue-on-error: true
         run: |
           echo "::group::Pyright - Static Type Checker"
-          pyright scrapling/
+          pyright spydra/
           echo "::endgroup::"
 
       - name: Check results and create summary
