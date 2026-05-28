@@ -8,61 +8,52 @@
 
 *Distributed crawling · Advanced anti-bot bypass · LLM-powered extraction*
 
-[![PyPI](https://img.shields.io/pypi/v/spydra.svg?color=brightgreen&label=pypi)](https://pypi.org/project/spydra/)
-[![Python](https://img.shields.io/pypi/pyversions/spydra)](https://pypi.org/project/spydra/)
 [![License: BSD](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/YukiStackAI/spydra?style=social)](https://github.com/YukiStackAI/spydra)
 
+---
+
 </div>
 
----
+## 🚀 What is Spydra?
 
-## Install from GitHub
-
-```bash
-# Latest stable
-pip install git+https://github.com/YukiStackAI/spydra.git
-
-# With browser engines (recommended)
-pip install "git+https://github.com/YukiStackAI/spydra.git#egg=spydra[fetchers]"
-
-# AI-native extraction
-pip install "git+https://github.com/YukiStackAI/spydra.git#egg=spydra[ai-extract]"
-
-# Anti-bot bypass
-pip install "git+https://github.com/YukiStackAI/spydra.git#egg=spydra[antibot]"
-
-# Distributed crawling
-pip install "git+https://github.com/YukiStackAI/spydra.git#egg=spydra[distributed]"
-
-# Everything
-pip install "git+https://github.com/YukiStackAI/spydra.git#egg=spydra[all]"
-```
-
-Or clone and install locally:
-```bash
-git clone https://github.com/YukiStackAI/spydra.git
-cd spydra
-pip install -e ".[all]"
-```
-
----
-
-## What is Spydra?
-
-Spydra is a Python web scraping framework with three new superpowers on top of a battle-tested core:
+Spydra is a high-performance Python web scraping framework that brings three new superpowers on top of a battle-tested core:
 
 | | Feature | What it does |
 |---|---|---|
-| 🤖 | **AI-native extraction** | Describe data in English — Spydra extracts it using an LLM |
-| 🛡 | **Advanced anti-bot bypass** | Dynamic JS fingerprints, human behavior emulation, CAPTCHA solving |
-| ⚡ | **Distributed crawling** | Redis-backed worker pools, stream results to JSON / CSV / webhooks |
+| 🤖 | **AI-native extraction** | Describe data in English — Spydra extracts it using an LLM. |
+| 🛡 | **Advanced anti-bot bypass** | Dynamic JS fingerprints, human behavior emulation, and automated CAPTCHA solving. |
+| ⚡ | **Distributed crawling** | Redis-backed worker pools to stream results directly to JSON, CSV, or Webhooks. |
 
 ---
 
-## Core features (original)
+## 📦 Installation
 
-### Fast HTTP scraping
+Since Spydra `2.0.0` is officially on PyPI, you can now install it cleanly via pip:
+
+```bash
+pip install spydra
+```
+
+### Advanced Installation Options
+
+Tailor Spydra to your exact needs by installing only the features you require:
+
+| Command | Features Included |
+|---------|-------------------|
+| `pip install "spydra[fetchers]"` | Core + Browser engines (Playwright) + Spider framework |
+| `pip install "spydra[ai-extract]"` | Core + LLM extraction support |
+| `pip install "spydra[antibot]"` | Core + Fingerprint generation + CAPTCHA solvers |
+| `pip install "spydra[distributed]"` | Core + Redis workers + Data Sinks |
+| `pip install "spydra[all]"` | **Everything included** |
+
+*(For development, you can clone the repository and run `pip install -e ".[all]"`, or use `git+https://github.com/YukiStackAI/spydra.git`)*
+
+---
+
+## 📖 Quick Start & Core Features
+
+### Fast HTTP Scraping
 
 ```python
 from spydra import Fetcher
@@ -73,16 +64,16 @@ for quote in page.css(".quote"):
     print(quote.css("small.author::text").get())
 ```
 
-### Cloudflare / bot-protected sites
+### Defeat Cloudflare & Bot Protection
 
 ```python
 from spydra import StealthyFetcher
 
 page = StealthyFetcher.fetch("https://protected-site.com")
-print(page.status)  # 200
+print(page.status)  # 200 OK
 ```
 
-### JavaScript-rendered pages
+### Render JavaScript (SPA)
 
 ```python
 from spydra import DynamicFetcher
@@ -91,7 +82,7 @@ page = DynamicFetcher.fetch("https://spa-site.com", wait_selector=".results")
 data = page.css(".product-title::text").getall()
 ```
 
-### Full spider with auto-pagination
+### Build Scalable Spiders
 
 ```python
 from spydra.spiders.spider import Spider
@@ -108,6 +99,7 @@ class QuoteSpider(Spider):
                 "author": quote.css("small.author::text").get(),
                 "tags":   quote.css("a.tag::text").getall(),
             }
+        
         next_page = response.css("li.next a::attr(href)").get()
         if next_page:
             yield Request(response.urljoin(next_page))
@@ -118,79 +110,57 @@ print(f"Scraped {len(result.items)} quotes")
 
 ---
 
-## 🤖 Feature 1 — AI-native extraction
+## 🤖 Feature Deep Dive
+
+### 1. AI-native extraction
+Extract strictly typed, structured data from any website just by describing it. 
 
 ```python
 from spydra.ai import LLMExtractor
 
-# Works with OpenAI, Anthropic, or local Ollama
+# Supports OpenAI, Anthropic, or local Ollama
 extractor = LLMExtractor(provider="openai", model="gpt-4o-mini")
 
 result = extractor.extract(
     url="https://quotes.toscrape.com/",
     instruction="Get all quotes with author name and tags",
 )
-for item in result.items:
-    print(item)
-# → [{"quote": "...", "author": "Einstein", "tags": [...]}, ...]
 
 result.to_json("quotes.json")
 ```
 
-**Auto-generate a Pydantic schema from any URL:**
-
+**Generate Pydantic schemas automatically:**
 ```python
 from spydra.ai import SchemaInferrer
 
 schema = SchemaInferrer(provider="openai").infer("https://books.toscrape.com/")
-print(schema.json_schema())      # → {"type": "object", "properties": {...}}
 BookModel = schema.to_pydantic() # → live Pydantic v2 model
 ```
 
-**Natural-language CSS selectors:**
-
-```python
-from spydra.ai import AISelector
-from spydra import Fetcher
-
-page     = Fetcher.get("https://quotes.toscrape.com/")
-elements = AISelector(provider="openai").select(page, "all author names")
-```
-
-Supported providers: `openai` · `anthropic` · `ollama`
-
----
-
-## 🛡 Feature 2 — Advanced anti-bot bypass
+### 2. Advanced anti-bot bypass
+Seamlessly bypass sophisticated bot-protection systems without getting blocked.
 
 ```python
 from spydra.antibot import FingerprintRotator, BehaviorEmulator, BehaviorProfile, CaptchaSolver
 
-# 1. Rotate JS fingerprint (Canvas, WebGL, AudioContext, screen, platform)
+# 1. Rotate JS fingerprints (Canvas, WebGL, AudioContext, screen, platform)
 rotator = FingerprintRotator(strategy="random")
-profile  = rotator.generate()
+profile = rotator.generate()
 page = StealthyFetcher.fetch(url, extra_headers=profile.extra_headers)
 
-# Inject into Playwright page
-rotator.patch_playwright_page(playwright_page, profile)
-
-# 2. Human behavioral emulation
+# 2. Emulate human behavior 
 emulator = BehaviorEmulator(BehaviorProfile(scroll=True, mouse_jitter=True, typing_wpm=52))
 emulator.goto(playwright_page, "https://example.com/login")
 emulator.type_text(playwright_page, "input#email", "user@example.com")
 emulator.click(playwright_page, "button[type=submit]")
 
-# 3. CAPTCHA solving
+# 3. Solve CAPTCHAs automatically
 solver = CaptchaSolver(provider="2captcha", api_key="YOUR_KEY")
-solver.auto_solve(playwright_page)             # auto-detect any CAPTCHA
-solver.solve_recaptcha_v2("6Le-...", page_url) # explicit
-solver.solve_hcaptcha("sitekey", page_url)
-solver.solve_turnstile("sitekey", page_url)
+solver.auto_solve(playwright_page)
 ```
 
----
-
-## ⚡ Feature 3 — Distributed crawling
+### 3. Distributed crawling
+Scale up your scraping across multiple machines with a Redis-backed queue system.
 
 ```python
 from spydra.distributed import DistSpider, JsonSink
@@ -200,68 +170,28 @@ class QuoteSpider(DistSpider):
     name       = "quotes"
     start_urls = ["https://quotes.toscrape.com/"]
     redis_url  = "redis://localhost:6379/0"
-    workers    = 4                          # parallel worker processes
-    sink       = JsonSink("quotes.jsonl")   # real-time streaming output
+    workers    = 4                          # Number of parallel workers
+    sink       = JsonSink("quotes.jsonl")   # Real-time streaming output
 
     async def parse(self, response):
-        for quote in response.css(".quote"):
-            yield {
-                "text":   quote.css("span.text::text").get(),
-                "author": quote.css("small.author::text").get(),
-            }
-        nxt = response.css("li.next a::attr(href)").get()
-        if nxt:
-            yield Request(response.urljoin(nxt))
+        # Your scraping logic here
+        pass
 
 QuoteSpider().start()
 ```
 
-**Multi-machine crawl:**
-
+Launch multiple workers across different machines to consume the same queue:
 ```bash
-# Start Redis first
-docker run -d -p 6379:6379 redis
-
-# Machine A — seeds queue + 2 workers
 python -m spydra.distributed.worker myspider:QuoteSpider --workers 2 --redis redis://HOST:6379
-
-# Machine B — joins same queue
-python -m spydra.distributed.worker myspider:QuoteSpider --workers 2 --redis redis://HOST:6379
-```
-
-**Available sinks:**
-
-```python
-from spydra.distributed import JsonSink, CsvSink, WebhookSink
-
-JsonSink("out.jsonl")                              # streaming JSON Lines
-JsonSink("out.json", format="json", indent=True)  # pretty JSON array
-CsvSink("out.csv")                                 # CSV (headers auto-detected)
-WebhookSink("https://api.example.com/ingest",
-            batch_size=50,
-            headers={"Authorization": "Bearer TOKEN"})
 ```
 
 ---
 
-## Install options
+## 📋 Requirements
 
-| Command | What you get |
-|---|---|
-| `pip install "git+https://github.com/YukiStackAI/spydra.git"` | Core only |
-| `pip install "git+...#egg=spydra[fetchers]"` | + all fetchers + Spider |
-| `pip install "git+...#egg=spydra[ai-extract]"` | + LLM extraction |
-| `pip install "git+...#egg=spydra[antibot]"` | + fingerprint + CAPTCHA |
-| `pip install "git+...#egg=spydra[distributed]"` | + Redis workers + sinks |
-| `pip install "git+...#egg=spydra[all]"` | Everything |
+- **Python:** 3.10+
+- **Redis:** *(Optional, required only for distributed crawling)*
 
----
+## ⚖️ License
 
-## Requirements
-
-- Python 3.10+
-- Redis *(distributed feature only)* — `docker run -d -p 6379:6379 redis`
-
-## License
-
-BSD License — see [LICENSE](LICENSE)
+Spydra is licensed under the **BSD License**. See [LICENSE](LICENSE) for more details.
