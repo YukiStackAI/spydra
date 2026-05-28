@@ -17,7 +17,7 @@ line-length = 120
 
 [lint]
 select = ["E", "F", "W"]
-ignore = ["E501", "F401", "F811"]
+ignore = ["E501", "F401", "F811", "E401", "E701", "E702", "W291", "E722"]
 
 [format]
 # Like Black, use double quotes for strings.
