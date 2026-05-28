@@ -90,9 +90,9 @@ class NoExitArgumentParser(ArgumentParser):  # pragma: no cover
 
     def exit(self, status=0, message=None):
         if message:
-            log.error(f"Scrapling shell exited with status {status}: {message}")
+            log.error(f"Spydra shell exited with status {status}: {message}")
             self._print_message(message, stderr)
-        raise ValueError(f"Scrapling shell exited with status {status}: {message or 'Unknown reason'}")
+        raise ValueError(f"Spydra shell exited with status {status}: {message or 'Unknown reason'}")
 
 
 class CurlParser:
@@ -322,7 +322,7 @@ class CurlParser:
                     log.error(f"Error calling Fetcher.{method}: {e}")
                     return None
             else:  # pragma: no cover
-                log.error(f'Request method "{method}" isn\'t supported by Scrapling yet')
+                log.error(f'Request method "{method}" isn\'t supported by Spydra yet')
                 return None
 
         else:  # pragma: no cover
@@ -370,7 +370,7 @@ def show_page_in_browser(page: Selector):  # pragma: no cover
         return
 
     try:
-        fd, fname = make_temp_file(prefix="scrapling_view_", suffix=".html")
+        fd, fname = make_temp_file(prefix="spydra_view_", suffix=".html")
         with open(fd, "w", encoding=page.encoding) as f:
             f.write(page.html_content)
 
@@ -429,12 +429,12 @@ class CustomShell:
         """Initialize application components"""
         # This is where you'd set up your application-specific objects
         if self.log_level:
-            getLogger("scrapling").setLevel(self.log_level)
+            getLogger("spydra").setLevel(self.log_level)
 
         settings = self.__Fetcher.display_config()
         settings.pop("storage", None)
         settings.pop("storage_args", None)
-        log.info(f"Scrapling {__version__} shell started")
+        log.info(f"Spydra {__version__} shell started")
         log.info(f"Logging level is set to '{getLevelName(self.log_level)}'")
         log.info(f"Fetchers' parsing settings: {settings}")
 
@@ -442,7 +442,7 @@ class CustomShell:
     def banner():
         """Create a custom banner for the shell"""
         return f"""
--> Available Scrapling objects:
+-> Available Spydra objects:
    - Fetcher/AsyncFetcher/FetcherSession
    - DynamicFetcher/DynamicSession/AsyncDynamicSession
    - StealthyFetcher/StealthySession/AsyncStealthySession

@@ -3,7 +3,7 @@ Tests for Selectors.filter() method edge cases.
 Target file: tests/parser/test_parser_advanced.py (append to TestAdvancedSelectors class)
 """
 import pytest
-from scrapling import Selector, Selectors
+from spydra import Selector, Selectors
 
 
 @pytest.fixture

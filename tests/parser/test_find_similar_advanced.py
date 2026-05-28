@@ -3,7 +3,7 @@ Tests for Selector.find_similar() with non-default parameters.
 Target file: tests/parser/test_general.py (append to TestSimilarElements class)
 """
 import pytest
-from scrapling import Selector
+from spydra import Selector
 
 
 @pytest.fixture

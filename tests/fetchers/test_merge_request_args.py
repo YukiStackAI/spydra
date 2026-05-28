@@ -1,6 +1,6 @@
 """Tests for _merge_request_args to ensure browser-only kwargs are excluded.
 
-Regression tests for https://github.com/D4Vinci/Scrapling/issues/247
+Regression tests for https://github.com/D4Vinci/Spydra/issues/247
 """
 
 import pytest

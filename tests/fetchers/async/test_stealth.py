@@ -1,7 +1,7 @@
 import pytest
 import pytest_httpbin
 
-from scrapling import StealthyFetcher
+from spydra import StealthyFetcher
 
 StealthyFetcher.adaptive = True
 

@@ -5,7 +5,7 @@
     1. You've completed or read the [Fetchers basics](../fetching/choosing.md) page to understand the different fetcher types and when to use each one.
     2. You've completed or read the [Main classes](../parsing/main_classes.md) page to understand the [Selector](../parsing/main_classes.md#selector) and [Response](../fetching/choosing.md#response-object) classes.
 
-Scrapling's spider system is a Scrapy-inspired async crawling framework designed for concurrent, multi-session crawls with built-in pause/resume support. It brings together Scrapling's parsing engine and fetchers into a unified crawling API while adding scheduling, concurrency control, and checkpointing.
+Spydra's spider system is a Scrapy-inspired async crawling framework designed for concurrent, multi-session crawls with built-in pause/resume support. It brings together Spydra's parsing engine and fetchers into a unified crawling API while adding scheduling, concurrency control, and checkpointing.
 
 If you're familiar with Scrapy, you'll feel right at home. If not, don't worry - the system is designed to be straightforward.
 
@@ -80,11 +80,11 @@ Scraped items are collected in an `ItemList` (a list subclass with `to_json()` a
 
 ## Comparison with Scrapy
 
-If you're coming from Scrapy, here's how Scrapling's spider system maps:
+If you're coming from Scrapy, here's how Spydra's spider system maps:
 
-| Concept            | Scrapy                        | Scrapling                                                       |
+| Concept            | Scrapy                        | Spydra                                                       |
 |--------------------|-------------------------------|-----------------------------------------------------------------|
-| Spider definition  | `scrapy.Spider` subclass      | `scrapling.spiders.Spider` subclass                             |
+| Spider definition  | `scrapy.Spider` subclass      | `spydra.spiders.Spider` subclass                             |
 | Initial requests   | `start_requests()`            | `async start_requests()`                                        |
 | Callbacks          | `def parse(self, response)`   | `async def parse(self, response)`                               |
 | Following links    | `response.follow(url)`        | `response.follow(url)`                                          |

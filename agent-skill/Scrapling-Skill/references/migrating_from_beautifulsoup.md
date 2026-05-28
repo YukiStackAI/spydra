@@ -1,11 +1,11 @@
-# Migrating from BeautifulSoup to Scrapling
+# Migrating from BeautifulSoup to Spydra
 
-API comparison between BeautifulSoup and Scrapling. Scrapling is faster, provides equivalent parsing capabilities, and adds features for fetching and handling modern web pages.
+API comparison between BeautifulSoup and Spydra. Spydra is faster, provides equivalent parsing capabilities, and adds features for fetching and handling modern web pages.
 
-Some BeautifulSoup shortcuts have no direct Scrapling equivalent. Scrapling avoids those shortcuts to preserve performance.
+Some BeautifulSoup shortcuts have no direct Spydra equivalent. Spydra avoids those shortcuts to preserve performance.
 
 
-| Task                                                            | BeautifulSoup Code                                                                                            | Scrapling Code                                                                    |
+| Task                                                            | BeautifulSoup Code                                                                                            | Spydra Code                                                                    |
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | Parser import                                                   | `from bs4 import BeautifulSoup`                                                                               | `from spydra.parser import Selector`                                           |
 | Parsing HTML from string                                        | `soup = BeautifulSoup(html, 'html.parser')`                                                                   | `page = Selector(html)`                                                           |
@@ -42,9 +42,9 @@ Some BeautifulSoup shortcuts have no direct Scrapling equivalent. Scrapling avoi
 | Filtering a group of elements that satisfies a condition        | `group = soup.find('p', 'story').css.filter('a')`                                                             | `group = page.find_all('p', 'story').filter(lambda p: p.tag == 'a')`              |
 
 
-¹ **Note:** BS4's `find_previous`/`find_all_previous` searches all preceding elements in document order, while Scrapling's `path` only returns ancestors (the parent chain). These are not exact equivalents, but ancestor search covers the most common use case.
+¹ **Note:** BS4's `find_previous`/`find_all_previous` searches all preceding elements in document order, while Spydra's `path` only returns ancestors (the parent chain). These are not exact equivalents, but ancestor search covers the most common use case.
 
-BeautifulSoup supports modifying/manipulating the parsed DOM. Scrapling does not - it is read-only and optimized for extraction.
+BeautifulSoup supports modifying/manipulating the parsed DOM. Spydra does not - it is read-only and optimized for extraction.
 
 ### Full Example: Extracting Links
 
@@ -63,10 +63,10 @@ for link in links:
     print(link['href'])
 ```
 
-**With Scrapling:**
+**With Spydra:**
 
 ```python
-from scrapling import Fetcher
+from spydra import Fetcher
 
 url = 'https://example.com'
 page = Fetcher.get(url)
@@ -76,11 +76,11 @@ for link in links:
     print(link)
 ```
 
-Scrapling combines fetching and parsing into a single step.
+Spydra combines fetching and parsing into a single step.
 
 **Note:**
 
-- **Parsers**: BeautifulSoup supports multiple parser engines. Scrapling always uses `lxml` for performance.
-- **Element Types**: BeautifulSoup elements are `Tag` objects; Scrapling elements are `Selector` objects. Both provide similar navigation and extraction methods.
+- **Parsers**: BeautifulSoup supports multiple parser engines. Spydra always uses `lxml` for performance.
+- **Element Types**: BeautifulSoup elements are `Tag` objects; Spydra elements are `Selector` objects. Both provide similar navigation and extraction methods.
 - **Error Handling**: Both libraries return `None` when an element is not found (e.g., `soup.find()` or `page.find()`). `page.css()` returns an empty `Selectors` list when no elements match. Use `page.css('.foo').first` to safely get the first match or `None`.
-- **Text Extraction**: Scrapling's `TextHandler` provides additional text processing methods such as `clean()` for removing extra whitespace, consecutive spaces, or unwanted characters.
+- **Text Extraction**: Spydra's `TextHandler` provides additional text processing methods such as `clean()` for removing extra whitespace, consecutive spaces, or unwanted characters.

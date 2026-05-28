@@ -59,7 +59,7 @@ Instead of launching a browser locally (Chromium/Google Chrome), you can connect
     * This makes it less confusing for new users, easier to maintain, and provides other benefits, as explained on the [StealthyFetcher page](../fetching/stealthy.md).
 
 ## Full list of arguments
-Scrapling provides many options with this fetcher and its session classes. To make it as simple as possible, we will list the options here and give examples of how to use most of them.
+Spydra provides many options with this fetcher and its session classes. To make it as simple as possible, we will list the options here and give examples of how to use most of them.
 
 |      Argument       | Description                                                                                                                                                                                                                         | Optional |
 |:-------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|
@@ -76,8 +76,8 @@ Scrapling provides many options with this fetcher and its session classes. To ma
 |     page_setup      | A function that takes the `page` object, runs before navigation. Use it to register event listeners or routes that must be set up before the page loads.                                                                            |    ✔️    |
 |    wait_selector    | Wait for a specific css selector to be in a specific state.                                                                                                                                                                         |    ✔️    |
 |     init_script     | An absolute path to a JavaScript file to be executed on page creation for all pages in this session.                                                                                                                                |    ✔️    |
-| wait_selector_state | Scrapling will wait for the given state to be fulfilled for the selector given with `wait_selector`. _Default state is `attached`._                                                                                                 |    ✔️    |
-|    google_search    | Enabled by default, Scrapling will set a Google referer header.                                                                                                                                                                     |    ✔️    |
+| wait_selector_state | Spydra will wait for the given state to be fulfilled for the selector given with `wait_selector`. _Default state is `attached`._                                                                                                 |    ✔️    |
+|    google_search    | Enabled by default, Spydra will set a Google referer header.                                                                                                                                                                     |    ✔️    |
 |    extra_headers    | A dictionary of extra headers to add to the request. _The referer set by `google_search` takes priority over the referer set here if used together._                                                                                |    ✔️    |
 |        proxy        | The proxy to be used with requests. It can be a string or a dictionary with only the keys 'server', 'username', and 'password'.                                                                                                     |    ✔️    |
 |     real_chrome     | If you have a Chrome browser installed on your device, enable this, and the Fetcher will launch and use an instance of your browser.                                                                                                |    ✔️    |
@@ -86,7 +86,7 @@ Scrapling provides many options with this fetcher and its session classes. To ma
 |       cdp_url       | Instead of launching a new browser instance, connect to this CDP URL to control real browsers through CDP.                                                                                                                          |    ✔️    |
 |    user_data_dir    | Path to a User Data Directory, which stores browser session data like cookies and local storage. The default is to create a temporary directory. **Only Works with sessions**                                                       |    ✔️    |
 |     extra_flags     | A list of additional browser flags to pass to the browser on launch.                                                                                                                                                                |    ✔️    |
-|   additional_args   | Additional arguments to be passed to Playwright's context as additional settings, and they take higher priority than Scrapling's settings.                                                                                          |    ✔️    |
+|   additional_args   | Additional arguments to be passed to Playwright's context as additional settings, and they take higher priority than Spydra's settings.                                                                                          |    ✔️    |
 |   selector_config   | A dictionary of custom parsing arguments to be used when creating the final `Selector`/`Response` class.                                                                                                                            |    ✔️    |
 |   blocked_domains   | A set of domain names to block requests to. Subdomains are also matched (e.g., `"example.com"` blocks `"sub.example.com"` too).                                                                                                     |    ✔️    |
 |      block_ads      | Block requests to ~3,500 known ad/tracking domains. Can be combined with `blocked_domains`.                                                                                                                                         |    ✔️    |
@@ -199,7 +199,7 @@ page = DynamicFetcher.fetch('https://example.com', proxy='http://username:passwo
 ### Downloading Files
 
 ```python
-page = DynamicFetcher.fetch('https://raw.githubusercontent.com/D4Vinci/Scrapling/main/docs/assets/main_cover.png')
+page = DynamicFetcher.fetch('https://raw.githubusercontent.com/D4Vinci/Spydra/main/docs/assets/main_cover.png')
 
 with open(file='main_cover.png', mode='wb') as f:
     f.write(page.body)

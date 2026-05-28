@@ -16,19 +16,19 @@ from spydra.fetchers import (
 )
 ```
 
-## ::: scrapling.fetchers.Fetcher
+## ::: spydra.fetchers.Fetcher
     handler: python
     :docstring:
 
-## ::: scrapling.fetchers.AsyncFetcher
+## ::: spydra.fetchers.AsyncFetcher
     handler: python
     :docstring:
 
-## ::: scrapling.fetchers.DynamicFetcher
+## ::: spydra.fetchers.DynamicFetcher
     handler: python
     :docstring:
 
-## ::: scrapling.fetchers.StealthyFetcher
+## ::: spydra.fetchers.StealthyFetcher
     handler: python
     :docstring:
 
@@ -37,27 +37,27 @@ from spydra.fetchers import (
 
 ### HTTP Sessions
 
-## ::: scrapling.fetchers.FetcherSession
+## ::: spydra.fetchers.FetcherSession
     handler: python
     :docstring:
 
 ### Stealth Sessions
 
-## ::: scrapling.fetchers.StealthySession
+## ::: spydra.fetchers.StealthySession
     handler: python
     :docstring:
 
-## ::: scrapling.fetchers.AsyncStealthySession
+## ::: spydra.fetchers.AsyncStealthySession
     handler: python
     :docstring:
 
 ### Dynamic Sessions
 
-## ::: scrapling.fetchers.DynamicSession
+## ::: spydra.fetchers.DynamicSession
     handler: python
     :docstring:
 
-## ::: scrapling.fetchers.AsyncDynamicSession
+## ::: spydra.fetchers.AsyncDynamicSession
     handler: python
     :docstring:
 

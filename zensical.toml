@@ -1,10 +1,10 @@
 [project]
-site_name = "Scrapling"
-site_description = "Scrapling - Effortless Web Scraping for the Modern Web!"
+site_name = "Spydra"
+site_description = "Spydra - Effortless Web Scraping for the Modern Web!"
 site_author = "Karim Shoair"
-repo_url = "https://github.com/D4Vinci/Scrapling"
-site_url = "https://scrapling.readthedocs.io/en/latest/"
-repo_name = "D4Vinci/Scrapling"
+repo_url = "https://github.com/D4Vinci/Spydra"
+site_url = "https://spydra.readthedocs.io/en/latest/"
+repo_name = "D4Vinci/Spydra"
 copyright = "Copyright &copy; 2025 Karim Shoair - <a href=\"#__consent\">Change cookie settings</a>"
 docs_dir = "docs"
 use_directory_urls = false
@@ -62,11 +62,11 @@ nav = [
             {"Proxy Rotation" = "api-reference/proxy-rotation.md"}
         ]},
         {"Writing your retrieval system" = "development/adaptive_storage_system.md"},
-        {"Using Scrapling's custom types" = "development/scrapling_custom_types.md"}
+        {"Using Spydra's custom types" = "development/spydra_custom_types.md"}
     ]},
     {"Support and Advertisement" = "donate.md"},
-    {Contributing = "https://github.com/D4Vinci/Scrapling/blob/main/CONTRIBUTING.md"},
-    {Changelog = "https://github.com/D4Vinci/Scrapling/releases"}
+    {Contributing = "https://github.com/D4Vinci/Spydra/blob/main/CONTRIBUTING.md"},
+    {Changelog = "https://github.com/D4Vinci/Spydra/releases"}
 ]
 
 [project.theme]
@@ -152,7 +152,7 @@ toc_depth = 3
 
 [project.plugins.mkdocstrings.handlers.python]
 inventories = ["https://docs.python.org/3/objects.inv"]
-paths = ["scrapling"]
+paths = ["spydra"]
 
 [project.plugins.mkdocstrings.handlers.python.options]
 docstring_style = "sphinx"
@@ -179,11 +179,11 @@ extensions = [
 
 [[project.extra.social]]
 icon = "fontawesome/brands/github"
-link = "https://github.com/D4Vinci/Scrapling"
+link = "https://github.com/D4Vinci/Spydra"
 
 [[project.extra.social]]
 icon = "fontawesome/brands/x-twitter"
-link = "https://x.com/Scrapling_dev"
+link = "https://x.com/Spydra_dev"
 
 [[project.extra.social]]
 icon = "fontawesome/brands/discord"
@@ -191,11 +191,11 @@ link = "https://discord.gg/EMgGbDceNQ"
 
 [[project.extra.social]]
 icon = "fontawesome/brands/python"
-link = "https://pypi.org/project/scrapling/"
+link = "https://pypi.org/project/spydra/"
 
 [[project.extra.social]]
 icon = "fontawesome/brands/docker"
-link = "https://hub.docker.com/r/pyd4vinci/scrapling"
+link = "https://hub.docker.com/r/pyd4vinci/spydra"
 
 [project.extra.analytics]
 provider = "google"
@@ -216,7 +216,7 @@ name = "This page could be improved"
 data = 0
 note = """
 Thanks for your feedback! Help us improve this page by
-<a href="https://github.com/D4Vinci/Scrapling/issues/new?template=04-docs_issue.yml" target="_blank" rel="noopener">opening a documentation issue</a>.
+<a href="https://github.com/D4Vinci/Spydra/issues/new?template=04-docs_issue.yml" target="_blank" rel="noopener">opening a documentation issue</a>.
 """
 
 [project.extra.consent]

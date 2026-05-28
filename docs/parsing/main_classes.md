@@ -4,11 +4,11 @@
 
     - You’ve completed or read the [Querying elements](../parsing/selection.md) page to understand how to find/extract elements from the [Selector](../parsing/main_classes.md#selector) object.
 
-After exploring the various ways to select elements with Scrapling and its related features, let's take a step back and examine the [Selector](#selector) class in general, as well as other objects, to gain a better understanding of the parsing engine.
+After exploring the various ways to select elements with Spydra and its related features, let's take a step back and examine the [Selector](#selector) class in general, as well as other objects, to gain a better understanding of the parsing engine.
 
-The [Selector](#selector) class is the core parsing engine in Scrapling, providing HTML parsing and element selection capabilities. You can always import it with any of the following imports
+The [Selector](#selector) class is the core parsing engine in Spydra, providing HTML parsing and element selection capabilities. You can always import it with any of the following imports
 ```python
-from scrapling import Selector
+from spydra import Selector
 from spydra.parser import Selector
 ```
 Then use it directly as you already learned in the [overview](../overview.md) page
@@ -21,7 +21,7 @@ page = Selector(
 # Then select elements as you like
 elements = page.css('.product')
 ```
-In Scrapling, the main object you deal with after passing an HTML source or fetching a website is, of course, a [Selector](#selector) object. Any operation you do, like selection, navigation, etc., will return either a [Selector](#selector) object or a [Selectors](#selectors) object, given that the result is element/elements from the page, not text or similar.
+In Spydra, the main object you deal with after passing an HTML source or fetching a website is, of course, a [Selector](#selector) object. Any operation you do, like selection, navigation, etc., will return either a [Selector](#selector) object or a [Selectors](#selectors) object, given that the result is element/elements from the page, not text or similar.
 
 In other words, the main page is a [Selector](#selector) object, and the elements within are [Selector](#selector) objects, and so on. Any text, such as the text content inside elements or the text inside element attributes, is a [TextHandler](#texthandler) object, and the attributes of each element are stored as [AttributesHandler](#attributeshandler). We will return to both objects later, so let's focus on the [Selector](#selector) object.
 
@@ -40,7 +40,7 @@ Then you have the arguments for parsing adjustments or adjusting/manipulating th
 I have intended to ignore the arguments `huge_tree` and `root` to avoid making this page more complicated than needed.
 You may notice that I'm doing that a lot because it involves advanced features that you don't need to know to use the library. The development section will cover these missing parts if you are very invested.
 
-After that, most properties on the main page and its elements are lazily loaded. This means they don't get initialized until you use them like the text content of a page/element, and this is one of the reasons for Scrapling speed :)
+After that, most properties on the main page and its elements are lazily loaded. This means they don't get initialized until you use them like the text content of a page/element, and this is one of the reasons for Spydra speed :)
 
 ### Properties
 You have already seen much of this on the [overview](../overview.md) page, but don't worry if you didn't. We will review it more thoroughly using more advanced methods/usages. For clarity, the properties for traversal are separated below in the [traversal](#traversal) section.
@@ -86,7 +86,7 @@ Let's say we are parsing this HTML page for simplicity:
 ```
 Load the page directly as shown before:
 ```python
-from scrapling import Selector
+from spydra import Selector
 page = Selector(html_doc)
 ```
 Get all text content on the page recursively
@@ -423,7 +423,7 @@ This class is mandatory to understand, as all methods/properties that should ret
 
 TextHandler is a subclass of the standard Python string, so you can do anything with it that you can do with a Python string. So, what is the difference that requires a different naming?
 
-Of course, TextHandler provides extra methods and properties that standard Python strings can't do. We will review them now, but remember that all methods and properties in all classes that return string(s) return TextHandler, which opens the door for creativity and makes the code shorter and cleaner, as you will see. Also, you can import it directly and use it on any string, which we will explain [later](../development/scrapling_custom_types.md).
+Of course, TextHandler provides extra methods and properties that standard Python strings can't do. We will review them now, but remember that all methods and properties in all classes that return string(s) return TextHandler, which opens the door for creativity and makes the code shorter and cleaner, as you will see. Also, you can import it directly and use it on any string, which we will explain [later](../development/spydra_custom_types.md).
 ### Usage
 First, before discussing the added methods, you need to know that all operations on it, like slicing, accessing by index, etc., and methods like `split`, `replace`, `strip`, etc., all return a `TextHandler` again, so you can chain them as you want. If you find a method or property that returns a standard string instead of `TextHandler`, please open an issue, and we will override it as well.
 
@@ -456,7 +456,7 @@ First, we start with the `re` and `re_first` methods. These are the same methods
     ```
     To explain the other arguments better, we will use a custom string for each example below
     ```python
-    >>> from scrapling import TextHandler
+    >>> from spydra import TextHandler
     >>> test_string = TextHandler('hi  there')  # Hence the two spaces
     >>> test_string.re('hi there')
     >>> test_string.re('hi there', clean_match=True)  # Using `clean_match` will clean the string before matching the regex

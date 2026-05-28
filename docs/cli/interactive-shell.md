@@ -1,10 +1,10 @@
-# Scrapling Interactive Shell Guide
+# Spydra Interactive Shell Guide
 
 <script src="https://asciinema.org/a/736339.js" id="asciicast-736339" async data-autoplay="1" data-loop="1" data-cols="225" data-rows="40" data-start-at="00:06" data-speed="1.5" data-theme="tango"></script>
 
 **Powerful Web Scraping REPL for Developers and Data Scientists**
 
-The Scrapling Interactive Shell is an enhanced IPython-based environment designed specifically for Web Scraping tasks. It provides instant access to all Scrapling features, clever shortcuts, automatic page management, and advanced tools, such as conversion of the curl command.
+The Spydra Interactive Shell is an enhanced IPython-based environment designed specifically for Web Scraping tasks. It provides instant access to all Spydra features, clever shortcuts, automatic page management, and advanced tools, such as conversion of the curl command.
 
 !!! success "Prerequisites"
 
@@ -20,7 +20,7 @@ The interactive shell transforms web scraping from a slow script-and-run cycle i
 
 - **Rapid prototyping**: Test scraping strategies instantly
 - **Data exploration**: Interactively navigate and extract from websites  
-- **Learning Scrapling**: Experiment with features in real-time
+- **Learning Spydra**: Experiment with features in real-time
 - **Debugging scrapers**: Step through requests and inspect results
 - **Converting workflows**: Transform curl commands from browser DevTools to a Fetcher request in a one-liner
 
@@ -30,16 +30,16 @@ The interactive shell transforms web scraping from a slow script-and-run cycle i
 
 ```bash
 # Start the interactive shell
-scrapling shell
+spydra shell
 
 # Execute code and exit (useful for scripting)
-scrapling shell -c "get('https://quotes.toscrape.com'); print(len(page.css('.quote')))"
+spydra shell -c "get('https://quotes.toscrape.com'); print(len(page.css('.quote')))"
 
 # Set logging level
-scrapling shell --loglevel info
+spydra shell --loglevel info
 ```
 
-Once launched, you'll see the Scrapling banner and can immediately start scraping as the video above shows:
+Once launched, you'll see the Spydra banner and can immediately start scraping as the video above shows:
 
 ```python
 # No imports needed - everything is ready!
@@ -127,19 +127,19 @@ The shell provides a few functions to help you convert curl commands from the br
 
 First, you need to copy a request as a curl command like the following:
 
-<img src="../assets/scrapling_shell_curl.png" title="Copying a request as a curl command from Chrome" alt="Copying a request as a curl command from Chrome" style="width: 70%;"/>
+<img src="../assets/spydra_shell_curl.png" title="Copying a request as a curl command from Chrome" alt="Copying a request as a curl command from Chrome" style="width: 70%;"/>
 
 - **Convert Curl command to Request Object**
 
     ```python
-     curl_cmd = '''curl 'https://scrapling.requestcatcher.com/post' \
+     curl_cmd = '''curl 'https://spydra.requestcatcher.com/post' \
     ...   -X POST \
     ...   -H 'Content-Type: application/json' \
     ...   -d '{"name": "test", "value": 123}' '''
     
      request = uncurl(curl_cmd)
      request.method  # -> 'post'
-     request.url  # -> 'https://scrapling.requestcatcher.com/post'
+     request.url  # -> 'https://spydra.requestcatcher.com/post'
      request.headers  # -> {'Content-Type': 'application/json'}
     ```
 
@@ -227,8 +227,8 @@ with FetcherSession() as session:
 
 If you need help other than what is available in-terminal, you can:
 
-- [Scrapling Documentation](https://scrapling.readthedocs.io/)
+- [Spydra Documentation](https://spydra.readthedocs.io/)
 - [Discord Community](https://discord.gg/EMgGbDceNQ)
-- [GitHub Issues](https://github.com/D4Vinci/Scrapling/issues)  
+- [GitHub Issues](https://github.com/D4Vinci/Spydra/issues)  
 
 And that's it! Happy scraping! The shell makes web scraping as easy as a conversation.

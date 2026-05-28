@@ -2,7 +2,7 @@ import asyncio
 
 import pytest
 
-from scrapling import Selector
+from spydra import Selector
 
 
 class TestParserAdaptive:

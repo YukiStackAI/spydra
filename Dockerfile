@@ -1,6 +1,6 @@
 FROM python:3.12-slim-trixie
 
-LABEL io.modelcontextprotocol.server.name="io.github.D4Vinci/Scrapling"
+LABEL io.modelcontextprotocol.server.name="io.github.D4Vinci/Spydra"
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Set environment variables
@@ -34,8 +34,8 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # Expose port for MCP server HTTP transport
 EXPOSE 8000
 
-# Set entrypoint to run scrapling
-ENTRYPOINT ["uv", "run", "scrapling"]
+# Set entrypoint to run spydra
+ENTRYPOINT ["uv", "run", "spydra"]
 
 # Default command (can be overridden)
 CMD ["--help"]

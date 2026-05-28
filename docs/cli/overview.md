@@ -1,6 +1,6 @@
 # Command Line Interface
 
-Since v0.3, Scrapling includes a powerful command-line interface that provides three main capabilities:
+Since v0.3, Spydra includes a powerful command-line interface that provides three main capabilities:
 
 1. **Interactive Shell**: An interactive Web Scraping shell based on IPython that provides many shortcuts and useful tools
 2. **Extract Commands**: Scrape websites from the terminal without any programming
@@ -8,14 +8,14 @@ Since v0.3, Scrapling includes a powerful command-line interface that provides t
 
 ```bash
 # Launch interactive shell
-scrapling shell
+spydra shell
 
 # Convert the content of a page to markdown and save it to a file
-scrapling extract get "https://example.com" content.md
+spydra extract get "https://example.com" content.md
 
 # Get help for any command
-scrapling --help
-scrapling extract --help
+spydra --help
+spydra extract --help
 ```
 
 ## Requirements
@@ -25,6 +25,6 @@ pip install "spydra[shell]"
 ```
 and the installation of the fetchers' dependencies with the following command
 ```bash
-scrapling install
+spydra install
 ```
 This downloads all browsers, along with their system dependencies and fingerprint manipulation dependencies.

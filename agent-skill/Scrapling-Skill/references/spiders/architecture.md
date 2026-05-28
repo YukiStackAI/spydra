@@ -1,6 +1,6 @@
 # Spiders architecture
 
-Scrapling's spider system is an async crawling framework designed for concurrent, multi-session crawls with built-in pause/resume support. It brings together Scrapling's parsing engine and fetchers into a unified crawling API while adding scheduling, concurrency control, and checkpointing.
+Spydra's spider system is an async crawling framework designed for concurrent, multi-session crawls with built-in pause/resume support. It brings together Spydra's parsing engine and fetchers into a unified crawling API while adding scheduling, concurrency control, and checkpointing.
 
 ## Data Flow
 
@@ -71,11 +71,11 @@ Scraped items are collected in an `ItemList` (a list subclass with `to_json()` a
 
 ## Comparison with Scrapy
 
-If you're coming from Scrapy, here's how Scrapling's spider system maps:
+If you're coming from Scrapy, here's how Spydra's spider system maps:
 
-| Concept            | Scrapy                        | Scrapling                                                       |
+| Concept            | Scrapy                        | Spydra                                                       |
 |--------------------|-------------------------------|-----------------------------------------------------------------|
-| Spider definition  | `scrapy.Spider` subclass      | `scrapling.spiders.Spider` subclass                             |
+| Spider definition  | `scrapy.Spider` subclass      | `spydra.spiders.Spider` subclass                             |
 | Initial requests   | `start_requests()`            | `async start_requests()`                                        |
 | Callbacks          | `def parse(self, response)`   | `async def parse(self, response)`                               |
 | Following links    | `response.follow(url)`        | `response.follow(url)`                                          |

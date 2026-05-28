@@ -5,7 +5,7 @@
     1. You've completed or read the [Querying elements](../parsing/selection.md) page to understand how to find/extract elements from the [Selector](../parsing/main_classes.md#selector) object.
     2. You've completed or read the [Main classes](../parsing/main_classes.md) page to understand the [Selector](../parsing/main_classes.md#selector) class.
 
-Adaptive scraping (previously known as automatch) is one of Scrapling's most powerful features. It allows your scraper to survive website changes by intelligently tracking and relocating elements.
+Adaptive scraping (previously known as automatch) is one of Spydra's most powerful features. It allows your scraper to survive website changes by intelligently tracking and relocating elements.
 
 Let's say you are scraping a page with a structure like this:
 ```html
@@ -47,12 +47,12 @@ When website owners implement structural changes like
     </div>
 </div>
 ```
-The selector will no longer function, and your code needs maintenance. That's where Scrapling's `adaptive` feature comes into play.
+The selector will no longer function, and your code needs maintenance. That's where Spydra's `adaptive` feature comes into play.
 
-With Scrapling, you can enable the `adaptive` feature the first time you select an element, and the next time you select that element and it doesn't exist, Scrapling will remember its properties and search on the website for the element with the highest percentage of similarity to that element, and without AI :)
+With Spydra, you can enable the `adaptive` feature the first time you select an element, and the next time you select that element and it doesn't exist, Spydra will remember its properties and search on the website for the element with the highest percentage of similarity to that element, and without AI :)
 
 ```python
-from scrapling import Selector, Fetcher
+from spydra import Selector, Fetcher
 # Before the change
 page = Selector(page_source, adaptive=True, url='example.com')
 # or
@@ -61,7 +61,7 @@ page = Fetcher.get('https://example.com')
 # then
 element = page.css('#p1', auto_save=True)
 if not element:  # One day website changes?
-    element = page.css('#p1', adaptive=True)  # Scrapling still finds it!
+    element = page.css('#p1', adaptive=True)  # Spydra still finds it!
 # the rest of your code...
 ```
 Below, I will show you an example of how to use this feature. Then, we will dive deep into how to use it and provide details about this feature. Note that it works with all selection methods, not just CSS/XPATH selection.
@@ -76,7 +76,7 @@ If I want to extract the Questions button from the old design, I can use a selec
 
 Now, let's test the same selector in both versions
 ```python
-from scrapling import Fetcher
+from spydra import Fetcher
 selector = '#hmenus > div:nth-child(1) > ul > li:nth-child(1) > a'
 old_url = "https://web.archive.org/web/20100102003420/http://stackoverflow.com/"
 new_url = "https://stackoverflow.com/"
@@ -88,9 +88,9 @@ page = Fetcher.get(new_url)
 element2 = page.css(selector, adaptive=True)[0]
 
 if element1.text == element2.text:
-    print('Scrapling found the same element in the old and new designs!')  # Spoiler alert: it does!
+    print('Spydra found the same element in the old and new designs!')  # Spoiler alert: it does!
 ```
-Note that I introduced a new argument called `adaptive_domain`. This is because, for Scrapling, these are two different domains (`archive.org` and `stackoverflow.com`), so Scrapling will isolate their `adaptive` data. To inform Scrapling that they are the same website, we must pass the custom domain we wish to use while saving `adaptive` data for both, ensuring Scrapling doesn't isolate them.
+Note that I introduced a new argument called `adaptive_domain`. This is because, for Spydra, these are two different domains (`archive.org` and `stackoverflow.com`), so Spydra will isolate their `adaptive` data. To inform Spydra that they are the same website, we must pass the custom domain we wish to use while saving `adaptive` data for both, ensuring Spydra doesn't isolate them.
 
 The code will be the same in a real-world scenario, except it will use the same URL for both requests, so you won't need to use the `adaptive_domain` argument. This is the closest example I can give to real-world cases, so I hope it didn't confuse you :)
 
@@ -98,7 +98,7 @@ Hence, in the two examples above, I used both the `Selector` and `Fetcher` class
 
 !!! info
 
-    The main reason for creating the `adaptive_domain` argument was to handle if the website changed its URL while changing the design/structure. In that case, you can use it to continue using the previously stored adaptive data for the new URL. Otherwise, scrapling will consider it a new website and discard the old data.
+    The main reason for creating the `adaptive_domain` argument was to handle if the website changed its URL while changing the design/structure. In that case, you can use it to continue using the previously stored adaptive data for the new URL. Otherwise, spydra will consider it a new website and discard the old data.
 
 ## How the adaptive scraping feature works
 Adaptive scraping works in two phases:
@@ -110,21 +110,21 @@ Let's say you've selected an element through any method and want the library to 
 
 With as few technical details as possible, the general logic goes as follows:
 
-  1. You tell Scrapling to save that element's unique properties in one of the ways we will show below.
-  2. Scrapling uses its configured database (SQLite by default) and saves each element's unique properties.
+  1. You tell Spydra to save that element's unique properties in one of the ways we will show below.
+  2. Spydra uses its configured database (SQLite by default) and saves each element's unique properties.
   3. Now, because everything about the element can be changed or removed by the website's owner(s), nothing from the element can be used as a unique identifier for the database. To solve this issue, I made the storage system rely on two things:
      1. The domain of the current website. If you are using the `Selector` class, pass it when initializing; if you are using a fetcher, the domain will be automatically taken from the URL.
      2. An `identifier` to query that element's properties from the database. You don't always have to set the identifier yourself; we'll discuss this later.
 
      Together, they will later be used to retrieve the element's unique properties from the database.
 
-  4. Later, when the website's structure changes, you tell Scrapling to find the element by enabling `adaptive`. Scrapling retrieves the element's unique properties and matches all elements on the page against the unique properties we already have for this element. A score is calculated based on their similarity to the desired element. In that comparison, everything is taken into consideration, as you will see later 
+  4. Later, when the website's structure changes, you tell Spydra to find the element by enabling `adaptive`. Spydra retrieves the element's unique properties and matches all elements on the page against the unique properties we already have for this element. A score is calculated based on their similarity to the desired element. In that comparison, everything is taken into consideration, as you will see later 
   5. The element(s) with the highest similarity score to the wanted element are returned.
 
 ### The unique properties
 You might wonder what unique properties we are referring to when discussing the removal or alteration of all element properties.
 
-For Scrapling, the unique elements we are relying on are:
+For Spydra, the unique elements we are relying on are:
 
 - Element tag name, text, attributes (names and values), siblings (tag names only), and path (tag names only).
 - Element's parent tag name, attributes (names and values), and text.
@@ -138,13 +138,13 @@ First, you must enable the `adaptive` feature by passing `adaptive=True` to the 
 
 Examples:
 ```python
-from scrapling import Selector, Fetcher
+from spydra import Selector, Fetcher
 page = Selector(html_doc, adaptive=True)
 # OR
 Fetcher.adaptive = True
 page = Fetcher.get('https://example.com')
 ```
-If you are using the [Selector](main_classes.md#selector) class, you need to pass the url of the website you are using with the argument `url` so Scrapling can separate the properties saved for each element by domain.
+If you are using the [Selector](main_classes.md#selector) class, you need to pass the url of the website you are using with the argument `url` so Spydra can separate the properties saved for each element by domain.
 
 If you didn't pass a URL, the word `default` will be used in place of the URL field while saving the element's unique properties. So, this will only be an issue if you use the same identifier later for a different website and don't pass the URL parameter when initializing it. The save process overwrites previous data, and the `adaptive` feature uses only the latest saved properties.
 
@@ -224,4 +224,4 @@ page.save(product, 'specific_product')
 In the `adaptive` save process, only the unique properties of the first element in the selection results are saved. So if the selector you are using selects different elements on the page in other locations, `adaptive` will return the first element to you only when you relocate it later. This doesn't include combined CSS selectors (Using commas to combine more than one selector, for example), as these selectors are separated and each is executed alone.
 
 ## Final thoughts
-Explaining this feature in detail without complications turned out to be challenging. However, still, if there's something left unclear, you can head out to the [discussions section](https://github.com/D4Vinci/Scrapling/discussions), and I will reply to you ASAP, or the Discord server, or reach out to me privately and have a chat :)
+Explaining this feature in detail without complications turned out to be challenging. However, still, if there's something left unclear, you can head out to the [discussions section](https://github.com/D4Vinci/Spydra/discussions), and I will reply to you ASAP, or the Discord server, or reach out to me privately and have a chat :)

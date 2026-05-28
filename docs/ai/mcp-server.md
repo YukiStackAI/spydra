@@ -1,12 +1,12 @@
-# Scrapling MCP Server Guide
+# Spydra MCP Server Guide
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qyFk3ZNwOxE?si=3FHzgcYCb66iJ6e3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-The **Scrapling MCP Server** is a new feature that brings Scrapling's powerful Web Scraping capabilities directly to your favorite AI chatbot or AI agent. This integration allows you to scrape websites, extract data, and bypass anti-bot protections conversationally through Claude's AI interface or any interface that supports MCP.
+The **Spydra MCP Server** is a new feature that brings Spydra's powerful Web Scraping capabilities directly to your favorite AI chatbot or AI agent. This integration allows you to scrape websites, extract data, and bypass anti-bot protections conversationally through Claude's AI interface or any interface that supports MCP.
 
 ## Features
 
-The Scrapling MCP Server provides ten powerful tools for web scraping:
+The Spydra MCP Server provides ten powerful tools for web scraping:
 
 ### 🚀 Basic HTTP Scraping
 - **`get`**: Fast HTTP requests with browser fingerprint impersonation, generating real browser headers matching the TLS version, HTTP/3, and more!
@@ -30,7 +30,7 @@ The Scrapling MCP Server provides ten powerful tools for web scraping:
 
 ### Key Capabilities
 - **Smart Content Extraction**: Convert web pages/elements to Markdown, HTML, or extract a clean version of the text content
-- **CSS Selector Support**: Use the Scrapling engine to target specific elements with precision before handing the content to the AI
+- **CSS Selector Support**: Use the Spydra engine to target specific elements with precision before handing the content to the AI
 - **Anti-Bot Bypass**: Handle Cloudflare Turnstile, Interstitial, and other protections
 - **Proxy Support**: Use proxies for anonymity and geo-targeting
 - **Browser Impersonation**: Mimic real browsers with TLS fingerprinting, real browser headers matching that version, and more
@@ -39,47 +39,47 @@ The Scrapling MCP Server provides ten powerful tools for web scraping:
 - **Ad Blocking**: All browser-based tools automatically block requests to ~3,500 known ad and tracker domains, saving tokens and speeding up page loads
 - **Prompt Injection Protection**: Automatic sanitization of hidden content (CSS-hidden elements, aria-hidden, zero-width characters, HTML comments, template tags) that could be used for prompt injection attacks
 
-#### But why use Scrapling MCP Server instead of other available tools?
+#### But why use Spydra MCP Server instead of other available tools?
 
-Aside from its stealth capabilities and ability to bypass Cloudflare Turnstile/Interstitial, Scrapling's server is the only one that lets you select specific elements to pass to the AI, saving a lot of time and tokens!
+Aside from its stealth capabilities and ability to bypass Cloudflare Turnstile/Interstitial, Spydra's server is the only one that lets you select specific elements to pass to the AI, saving a lot of time and tokens!
 
-The way other servers work is that they extract the content, then pass it all to the AI to extract the fields you want. This causes the AI to consume far more tokens than needed (from irrelevant content). Scrapling solves this problem by allowing you to pass a CSS selector to narrow down the content you want before passing it to the AI, which makes the whole process much faster and more efficient.
+The way other servers work is that they extract the content, then pass it all to the AI to extract the fields you want. This causes the AI to consume far more tokens than needed (from irrelevant content). Spydra solves this problem by allowing you to pass a CSS selector to narrow down the content you want before passing it to the AI, which makes the whole process much faster and more efficient.
 
 If you don't know how to write/use CSS selectors, don't worry. You can tell the AI in the prompt to write selectors to match possible fields for you and watch it try different combinations until it finds the right one, as we will show in the examples section.
 
 ## Installation
 
-Install Scrapling with MCP Support, then double-check that the browser dependencies are installed.
+Install Spydra with MCP Support, then double-check that the browser dependencies are installed.
 
 ```bash
-# Install Scrapling with MCP server dependencies
+# Install Spydra with MCP server dependencies
 pip install "spydra[ai]"
 
 # Install browser dependencies
-scrapling install
+spydra install
 ```
 
 Or use the Docker image directly from the Docker registry:
 ```bash
-docker pull pyd4vinci/scrapling
+docker pull pyd4vinci/spydra
 ```
 Or download it from the GitHub registry:
 ```bash
-docker pull ghcr.io/d4vinci/scrapling:latest
+docker pull ghcr.io/d4vinci/spydra:latest
 ```
 
 ## Setting up the MCP Server
 
-Here we will explain how to add Scrapling MCP Server to [Claude Desktop](https://claude.ai/download) and [Claude Code](https://www.anthropic.com/claude-code), but the same logic applies to any other chatbot that supports MCP:
+Here we will explain how to add Spydra MCP Server to [Claude Desktop](https://claude.ai/download) and [Claude Code](https://www.anthropic.com/claude-code), but the same logic applies to any other chatbot that supports MCP:
 
 ### Claude Desktop
 
 1. Open Claude Desktop
 2. Click the hamburger menu (☰) at the top left → Settings → Developer → Edit Config
-3. Add the Scrapling MCP server configuration:
+3. Add the Spydra MCP server configuration:
 ```json
-"ScraplingServer": {
-  "command": "scrapling",
+"SpydraServer": {
+  "command": "spydra",
   "args": [
     "mcp"
   ]
@@ -89,8 +89,8 @@ If that's the first MCP server you're adding, set the content of the file to thi
 ```json
 {
   "mcpServers": {
-    "ScraplingServer": {
-      "command": "scrapling",
+    "SpydraServer": {
+      "command": "spydra",
       "args": [
         "mcp"
       ]
@@ -103,17 +103,17 @@ As per the [official article](https://modelcontextprotocol.io/quickstart/user), 
 1. **MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 2. **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
-To ensure it's working, use the full path to the `scrapling` executable. Open the terminal and execute the following command:
+To ensure it's working, use the full path to the `spydra` executable. Open the terminal and execute the following command:
 
-1. **MacOS**: `which scrapling`
-2. **Windows**: `where scrapling`
+1. **MacOS**: `which spydra`
+2. **Windows**: `where spydra`
 
-For me, on my Mac, it returned `/Users/<MyUsername>/.venv/bin/scrapling`, so the config I used in the end is:
+For me, on my Mac, it returned `/Users/<MyUsername>/.venv/bin/spydra`, so the config I used in the end is:
 ```json
 {
   "mcpServers": {
-    "ScraplingServer": {
-      "command": "/Users/<MyUsername>/.venv/bin/scrapling",
+    "SpydraServer": {
+      "command": "/Users/<MyUsername>/.venv/bin/spydra",
       "args": [
         "mcp"
       ]
@@ -126,10 +126,10 @@ If you are using the Docker image, then it would be something like
 ```json
 {
   "mcpServers": {
-    "ScraplingServer": {
+    "SpydraServer": {
       "command": "docker",
       "args": [
-        "run", "-i", "--rm", "pyd4vinci/scrapling", "mcp"
+        "run", "-i", "--rm", "pyd4vinci/spydra", "mcp"
       ]
     }
   }
@@ -142,32 +142,32 @@ The same logic applies to [Cursor](https://cursor.com/docs/context/mcp), [WindSu
 Here it's much simpler to do. If you have [Claude Code](https://www.anthropic.com/claude-code) installed, open the terminal and execute the following command:
 
 ```bash
-claude mcp add ScraplingServer "/Users/<MyUsername>/.venv/bin/scrapling" mcp
+claude mcp add SpydraServer "/Users/<MyUsername>/.venv/bin/spydra" mcp
 ```
-Same as above, to get Scrapling's executable path, open the terminal and execute the following command:
+Same as above, to get Spydra's executable path, open the terminal and execute the following command:
 
-1. **MacOS**: `which scrapling`
-2. **Windows**: `where scrapling`
+1. **MacOS**: `which spydra`
+2. **Windows**: `where spydra`
 
 Here's the main article from Anthropic on [how to add MCP servers to Claude code](https://docs.anthropic.com/en/docs/claude-code/mcp#option-1%3A-add-a-local-stdio-server) for further details.
 
 
-Then, after you've added the server, you need to completely quit and restart the app you used above. In Claude Desktop, you should see an MCP server indicator (🔧) in the bottom-right corner of the chat input or see `ScraplingServer` in the `Search and tools` dropdown in the chat input box.
+Then, after you've added the server, you need to completely quit and restart the app you used above. In Claude Desktop, you should see an MCP server indicator (🔧) in the bottom-right corner of the chat input or see `SpydraServer` in the `Search and tools` dropdown in the chat input box.
 
 ### Streamable HTTP
 As per version 0.3.6, we have added the ability to make the MCP server use the 'Streamable HTTP' transport mode instead of the traditional 'stdio' transport.
 
 So instead of using the following command (the 'stdio' one):
 ```bash
-scrapling mcp
+spydra mcp
 ```
 Use the following to enable 'Streamable HTTP' transport mode:
 ```bash
-scrapling mcp --http
+spydra mcp --http
 ```
 Hence, the default value for the host the server is listening to is '0.0.0.0' and the port is 8000, which both can be configured as below:
 ```bash
-scrapling mcp --http --host '127.0.0.1' --port 8000
+spydra mcp --http --host '127.0.0.1' --port 8000
 ```
 
 ## Examples
@@ -281,10 +281,10 @@ We will gradually go from simple prompts to more complex ones. We will use Claud
     Another long test example that makes Clause think:
 
     ```
-    Use Scrapling MCP to do the following in this order:
+    Use Spydra MCP to do the following in this order:
 
     1. Open a stealthy browser session with headless mode off.
-    2. Go to this page and collect the number of stars: https://github.com/D4Vinci/Scrapling
+    2. Go to this page and collect the number of stars: https://github.com/D4Vinci/Spydra
     3. From the README, get the URL that shows the number of downloads and go to it.
     4. Get the number of downloads and the top 3 countries from the graph.
     5. Prepare a report with the results.
@@ -356,4 +356,4 @@ This protection runs automatically on all MCP tool responses. Keep `main_content
 
 ---
 
-*Built with ❤️ by the Scrapling team. Happy scraping!*
+*Built with ❤️ by the Spydra team. Happy scraping!*

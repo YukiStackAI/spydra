@@ -1,7 +1,7 @@
 import pytest
 import pytest_httpbin
 
-from scrapling import Fetcher
+from spydra import Fetcher
 
 Fetcher.adaptive = True
 

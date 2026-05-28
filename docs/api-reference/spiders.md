@@ -13,30 +13,30 @@ You can import them directly like below:
 from spydra.spiders import Spider, Request, CrawlResult, SessionManager, Response
 ```
 
-## ::: scrapling.spiders.Spider
+## ::: spydra.spiders.Spider
     handler: python
     :docstring:
 
-## ::: scrapling.spiders.Request
+## ::: spydra.spiders.Request
     handler: python
     :docstring:
 
 ## Result Classes
 
-## ::: scrapling.spiders.result.CrawlResult
+## ::: spydra.spiders.result.CrawlResult
     handler: python
     :docstring:
 
-## ::: scrapling.spiders.result.CrawlStats
+## ::: spydra.spiders.result.CrawlStats
     handler: python
     :docstring:
 
-## ::: scrapling.spiders.result.ItemList
+## ::: spydra.spiders.result.ItemList
     handler: python
     :docstring:
 
 ## Session Management
 
-## ::: scrapling.spiders.session.SessionManager
+## ::: spydra.spiders.session.SessionManager
     handler: python
     :docstring:

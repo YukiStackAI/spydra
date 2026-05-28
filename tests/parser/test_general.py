@@ -5,7 +5,7 @@ import logging
 import pytest
 from cssselect import SelectorError, SelectorSyntaxError
 
-from scrapling import Selector
+from spydra import Selector
 logging.getLogger("spydra").setLevel(logging.DEBUG)
 
 
@@ -300,7 +300,7 @@ def test_large_html_parsing_performance():
 
     # assert len(elements) == 5000  # GitHub actions don't like this line
     # Converting 5000 elements to a class and doing operations on them will take time
-    # Based on my tests with 100 runs, 1 loop each Scrapling (given the extra work/features) takes 10.4ms on average
+    # Based on my tests with 100 runs, 1 loop each Spydra (given the extra work/features) takes 10.4ms on average
     assert (
         end_time - start_time < 0.5
     )  # Locally I test on 0.1 but on GitHub actions with browsers and threading sometimes closing adds fractions of seconds

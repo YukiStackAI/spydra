@@ -13,8 +13,8 @@ on:
         default: 'latest'
 
 env:
-  DOCKERHUB_IMAGE: pyd4vinci/scrapling
-  GHCR_IMAGE: ghcr.io/${{ github.repository_owner }}/scrapling
+  DOCKERHUB_IMAGE: pyd4vinci/spydra
+  GHCR_IMAGE: ghcr.io/${{ github.repository_owner }}/spydra
 
 jobs:
   build-and-push:
@@ -61,13 +61,13 @@ jobs:
           type=semver,pattern={{major}}
           type=raw,value=latest,enable={{is_default_branch}}
         labels: |
-          org.opencontainers.image.title=Scrapling
+          org.opencontainers.image.title=Spydra
           org.opencontainers.image.description=An undetectable, powerful, flexible, high-performance Python library that makes Web Scraping easy and effortless as it should be!
           org.opencontainers.image.vendor=D4Vinci
           org.opencontainers.image.licenses=BSD
-          org.opencontainers.image.url=https://scrapling.readthedocs.io/en/latest/
+          org.opencontainers.image.url=https://spydra.readthedocs.io/en/latest/
           org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
-          org.opencontainers.image.documentation=https://scrapling.readthedocs.io/en/latest/
+          org.opencontainers.image.documentation=https://spydra.readthedocs.io/en/latest/
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v6

@@ -8,7 +8,7 @@ from mcp.types import ImageContent, TextContent
 from pydantic import BaseModel, Field
 
 from spydra.core.shell import Convertor
-from spydra.engines.toolbelt.custom import Response as _ScraplingResponse
+from spydra.engines.toolbelt.custom import Response as _SpydraResponse
 from spydra.engines.static import ImpersonateType
 from spydra.fetchers import (
     FetcherSession,
@@ -73,7 +73,7 @@ class _SessionEntry:
 
 
 def _translate_response(
-    page: _ScraplingResponse,
+    page: _SpydraResponse,
     extraction_type: extraction_types,
     css_selector: Optional[str],
     main_content_only: bool,
@@ -104,7 +104,7 @@ def _normalize_credentials(credentials: Optional[Dict[str, str]]) -> Optional[Tu
     return username, password
 
 
-class ScraplingMCPServer:
+class SpydraMCPServer:
     def __init__(self):
         self._sessions: Dict[str, _SessionEntry] = {}
 
@@ -157,7 +157,7 @@ class ScraplingMCPServer:
         :param session_type: The type of session to open. Use "dynamic" for standard Playwright browser, or "stealthy" for anti-bot bypass with fingerprint spoofing.
         :param session_id: Optional custom session ID. If not provided, a random 12-character hex ID will be generated. Useful for naming sessions for easier management.
         :param headless: Run the browser in headless/hidden (default), or headful/visible mode.
-        :param google_search: Enabled by default, Scrapling will set a Google referer header.
+        :param google_search: Enabled by default, Spydra will set a Google referer header.
         :param real_chrome: If you have a Chrome browser installed on your device, enable this, and the Fetcher will launch an instance of your browser and use it.
         :param wait: The time (milliseconds) the fetcher will wait after everything finishes before closing the page and returning the Response object.
         :param proxy: The proxy to be used with requests, it can be a string or a dictionary with the keys 'server', 'username', and 'password' only.
@@ -376,7 +376,7 @@ class ScraplingMCPServer:
         :param http3: Whether to use HTTP3. Defaults to False. It might be problematic if used it with `impersonate`.
         :param stealthy_headers: If enabled (default), it creates and adds real browser headers. It also sets a Google referer header.
         """
-        results = await ScraplingMCPServer.bulk_get(
+        results = await SpydraMCPServer.bulk_get(
             urls=[url],
             impersonate=impersonate,
             extraction_type=extraction_type,
@@ -530,7 +530,7 @@ class ScraplingMCPServer:
         :param wait_selector_state: The state to wait for the selector given with `wait_selector`. The default state is `attached`.
         :param real_chrome: If you have a Chrome browser installed on your device, enable this, and the Fetcher will launch an instance of your browser and use it.
         :param cdp_url: Instead of launching a new browser instance, connect to this CDP URL to control real browsers through CDP.
-        :param google_search: Enabled by default, Scrapling will set a Google referer header.
+        :param google_search: Enabled by default, Spydra will set a Google referer header.
         :param extra_headers: A dictionary of extra headers to add to the request. _The referer set by `google_search` takes priority over the referer set here if used together._
         :param proxy: The proxy to be used with requests, it can be a string or a dictionary with the keys 'server', 'username', and 'password' only.
         :param session_id: Optional session ID from open_session. If provided, reuses the existing browser session instead of creating a new one.
@@ -612,7 +612,7 @@ class ScraplingMCPServer:
         :param wait_selector_state: The state to wait for the selector given with `wait_selector`. The default state is `attached`.
         :param real_chrome: If you have a Chrome browser installed on your device, enable this, and the Fetcher will launch an instance of your browser and use it.
         :param cdp_url: Instead of launching a new browser instance, connect to this CDP URL to control real browsers through CDP.
-        :param google_search: Enabled by default, Scrapling will set a Google referer header.
+        :param google_search: Enabled by default, Spydra will set a Google referer header.
         :param extra_headers: A dictionary of extra headers to add to the request. _The referer set by `google_search` takes priority over the referer set here if used together._
         :param proxy: The proxy to be used with requests, it can be a string or a dictionary with the keys 'server', 'username', and 'password' only.
         :param session_id: Optional session ID from open_session. If provided, reuses the existing browser session instead of creating a new one.
@@ -722,10 +722,10 @@ class ScraplingMCPServer:
         :param hide_canvas: Add random noise to canvas operations to prevent fingerprinting.
         :param block_webrtc: Forces WebRTC to respect proxy settings to prevent local IP address leak.
         :param cdp_url: Instead of launching a new browser instance, connect to this CDP URL to control real browsers through CDP.
-        :param google_search: Enabled by default, Scrapling will set a Google referer header.
+        :param google_search: Enabled by default, Spydra will set a Google referer header.
         :param extra_headers: A dictionary of extra headers to add to the request. _The referer set by `google_search` takes priority over the referer set here if used together._
         :param proxy: The proxy to be used with requests, it can be a string or a dictionary with the keys 'server', 'username', and 'password' only.
-        :param additional_args: Additional arguments to be passed to Playwright's context as additional settings, and it takes higher priority than Scrapling's settings.
+        :param additional_args: Additional arguments to be passed to Playwright's context as additional settings, and it takes higher priority than Spydra's settings.
         :param session_id: Optional session ID from open_session. If provided, reuses the existing browser session instead of creating a new one.
         """
         results = await self.bulk_stealthy_fetch(
@@ -819,10 +819,10 @@ class ScraplingMCPServer:
         :param hide_canvas: Add random noise to canvas operations to prevent fingerprinting.
         :param block_webrtc: Forces WebRTC to respect proxy settings to prevent local IP address leak.
         :param cdp_url: Instead of launching a new browser instance, connect to this CDP URL to control real browsers through CDP.
-        :param google_search: Enabled by default, Scrapling will set a Google referer header.
+        :param google_search: Enabled by default, Spydra will set a Google referer header.
         :param extra_headers: A dictionary of extra headers to add to the request. _The referer set by `google_search` takes priority over the referer set here if used together._
         :param proxy: The proxy to be used with requests, it can be a string or a dictionary with the keys 'server', 'username', and 'password' only.
-        :param additional_args: Additional arguments to be passed to Playwright's context as additional settings, and it takes higher priority than Scrapling's settings.
+        :param additional_args: Additional arguments to be passed to Playwright's context as additional settings, and it takes higher priority than Spydra's settings.
         :param session_id: Optional session ID from open_session. If provided, reuses the existing browser session instead of creating a new one.
         """
         if session_id:
@@ -876,7 +876,7 @@ class ScraplingMCPServer:
 
     def serve(self, http: bool, host: str, port: int):
         """Serve the MCP server."""
-        server = FastMCP(name="Scrapling", host=host, port=port)
+        server = FastMCP(name="Spydra", host=host, port=port)
         # Session management tools
         server.add_tool(self.open_session, title="open_session", structured_output=True)
         server.add_tool(self.close_session, title="close_session", structured_output=True)

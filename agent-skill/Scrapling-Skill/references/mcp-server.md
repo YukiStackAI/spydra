@@ -1,6 +1,6 @@
-# Scrapling MCP Server
+# Spydra MCP Server
 
-The Scrapling MCP server exposes ten tools over the MCP protocol. It supports CSS-selector-based content narrowing (reducing tokens by extracting only relevant elements before returning results), three levels of scraping capability (plain HTTP, browser-rendered, and stealth/anti-bot bypass), persistent browser session management, and page screenshots returned as real image content blocks.
+The Spydra MCP server exposes ten tools over the MCP protocol. It supports CSS-selector-based content narrowing (reducing tokens by extracting only relevant elements before returning results), three levels of scraping capability (plain HTTP, browser-rendered, and stealth/anti-bot bypass), persistent browser session management, and page screenshots returned as real image content blocks.
 
 All scraping tools return a `ResponseModel` with fields: `status` (int), `content` (list of strings), `url` (str). The `screenshot` tool returns a list of MCP content blocks: an `ImageContent` (the screenshot bytes) followed by a `TextContent` (the post-redirect URL).
 
@@ -84,7 +84,7 @@ Anti-bot bypass fetcher with fingerprint spoofing. Use this for sites with Cloud
 | `hide_canvas`      | bool         | false   | Add noise to canvas operations to prevent fingerprinting         |
 | `block_webrtc`     | bool         | false   | Force WebRTC to respect proxy settings (prevents IP leak)        |
 | `allow_webgl`      | bool         | true    | Keep WebGL enabled (disabling is detectable by WAFs)             |
-| `additional_args`  | dict or null | null    | Extra Playwright context args (overrides Scrapling defaults)     |
+| `additional_args`  | dict or null | null    | Extra Playwright context args (overrides Spydra defaults)     |
 | `session_id`       | str or null  | null    | Reuse a persistent stealthy session from `open_session`          |
 
 All parameters from `fetch` are also accepted.
@@ -194,21 +194,21 @@ All browser-based tools (`fetch`, `bulk_fetch`, `stealthy_fetch`, `bulk_stealthy
 Start the server (stdio transport, used by most MCP clients):
 
 ```bash
-scrapling mcp
+spydra mcp
 ```
 
 Or with Streamable HTTP transport:
 
 ```bash
-scrapling mcp --http
-scrapling mcp --http --host 127.0.0.1 --port 8000
+spydra mcp --http
+spydra mcp --http --host 127.0.0.1 --port 8000
 ```
 
 Docker alternative:
 
 ```bash
-docker pull pyd4vinci/scrapling
-docker run -i --rm scrapling mcp
+docker pull pyd4vinci/spydra
+docker run -i --rm spydra mcp
 ```
 
-The MCP server name when registering with a client is `ScraplingServer`. The command is the path to the `scrapling` binary and the argument is `mcp`.
+The MCP server name when registering with a client is `SpydraServer`. The command is the path to the `spydra` binary and the argument is `mcp`.

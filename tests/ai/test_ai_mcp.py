@@ -9,7 +9,7 @@ import pytest_httpbin
 from mcp.types import ImageContent, TextContent
 
 from spydra.core.ai import (
-    ScraplingMCPServer,
+    SpydraMCPServer,
     ResponseModel,
     SessionInfo,
     SessionCreatedModel,
@@ -28,7 +28,7 @@ class TestMCPServer:
 
     @pytest.fixture
     def server(self):
-        return ScraplingMCPServer()
+        return SpydraMCPServer()
 
     @pytest.mark.asyncio
     async def test_get_tool(self, server, test_url):
@@ -83,7 +83,7 @@ class TestSessionManagement:
 
     @pytest.fixture
     def server(self):
-        return ScraplingMCPServer()
+        return SpydraMCPServer()
 
     @pytest.mark.asyncio
     async def test_open_and_close_session(self, server):
@@ -244,7 +244,7 @@ class TestScreenshot:
 
     @pytest.fixture
     def server(self):
-        return ScraplingMCPServer()
+        return SpydraMCPServer()
 
     @pytest.mark.asyncio
     async def test_screenshot_png_with_dynamic_session(self, server, test_url):

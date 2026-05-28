@@ -1,10 +1,10 @@
-<!-- mcp-name: io.github.D4Vinci/Scrapling -->
+<!-- mcp-name: io.github.D4Vinci/Spydra -->
 
 <h1 align="center">
-    <a href="https://scrapling.readthedocs.io">
+    <a href="https://spydra.readthedocs.io">
         <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/docs/assets/cover_dark.svg?sanitize=true">
-          <img alt="Scrapling Poster" src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/docs/assets/cover_light.svg?sanitize=true">
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/D4Vinci/Spydra/main/docs/assets/cover_dark.svg?sanitize=true">
+          <img alt="Spydra Poster" src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/docs/assets/cover_light.svg?sanitize=true">
         </picture>
     </a>
     <br>
@@ -12,42 +12,42 @@
 </h1>
 
 <p align="center">
-    <a href="https://github.com/D4Vinci/Scrapling/actions/workflows/tests.yml" alt="Tests">
-        <img alt="Tests" src="https://github.com/D4Vinci/Scrapling/actions/workflows/tests.yml/badge.svg"></a>
-    <a href="https://badge.fury.io/py/Scrapling" alt="PyPI version">
-        <img alt="PyPI version" src="https://badge.fury.io/py/Scrapling.svg"></a>
-    <a href="https://clickpy.clickhouse.com/dashboard/scrapling" rel="nofollow"><img src="https://img.shields.io/pypi/dm/scrapling" alt="PyPI package downloads"></a>
-    <a href="https://github.com/D4Vinci/Scrapling/tree/main/agent-skill" alt="AI Agent Skill directory">
-        <img alt="Static Badge" src="https://img.shields.io/badge/Skill-black?style=flat&label=Agent&link=https%3A%2F%2Fgithub.com%2FD4Vinci%2FScrapling%2Ftree%2Fmain%2Fagent-skill"></a>
-    <a href="https://clawhub.ai/D4Vinci/scrapling-official" alt="OpenClaw Skill">
-        <img alt="OpenClaw Skill" src="https://img.shields.io/badge/Clawhub-darkred?style=flat&label=OpenClaw&link=https%3A%2F%2Fclawhub.ai%2FD4Vinci%2Fscrapling-official"></a>
+    <a href="https://github.com/D4Vinci/Spydra/actions/workflows/tests.yml" alt="Tests">
+        <img alt="Tests" src="https://github.com/D4Vinci/Spydra/actions/workflows/tests.yml/badge.svg"></a>
+    <a href="https://badge.fury.io/py/Spydra" alt="PyPI version">
+        <img alt="PyPI version" src="https://badge.fury.io/py/Spydra.svg"></a>
+    <a href="https://clickpy.clickhouse.com/dashboard/spydra" rel="nofollow"><img src="https://img.shields.io/pypi/dm/spydra" alt="PyPI package downloads"></a>
+    <a href="https://github.com/D4Vinci/Spydra/tree/main/agent-skill" alt="AI Agent Skill directory">
+        <img alt="Static Badge" src="https://img.shields.io/badge/Skill-black?style=flat&label=Agent&link=https%3A%2F%2Fgithub.com%2FD4Vinci%2FSpydra%2Ftree%2Fmain%2Fagent-skill"></a>
+    <a href="https://clawhub.ai/D4Vinci/spydra-official" alt="OpenClaw Skill">
+        <img alt="OpenClaw Skill" src="https://img.shields.io/badge/Clawhub-darkred?style=flat&label=OpenClaw&link=https%3A%2F%2Fclawhub.ai%2FD4Vinci%2Fspydra-official"></a>
     <br/>
     <a href="https://discord.gg/EMgGbDceNQ" alt="Discord" target="_blank">
       <img alt="Discord" src="https://img.shields.io/discord/1360786381042880532?style=social&logo=discord&link=https%3A%2F%2Fdiscord.gg%2FEMgGbDceNQ">
     </a>
-    <a href="https://x.com/Scrapling_dev" alt="X (formerly Twitter)">
-      <img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/Scrapling_dev?style=social&logo=x&link=https%3A%2F%2Fx.com%2FScrapling_dev">
+    <a href="https://x.com/Spydra_dev" alt="X (formerly Twitter)">
+      <img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/Spydra_dev?style=social&logo=x&link=https%3A%2F%2Fx.com%2FSpydra_dev">
     </a>
     <br/>
-    <a href="https://pypi.org/project/scrapling/" alt="Supported Python versions">
-        <img alt="Supported Python versions" src="https://img.shields.io/pypi/pyversions/scrapling.svg"></a>
+    <a href="https://pypi.org/project/spydra/" alt="Supported Python versions">
+        <img alt="Supported Python versions" src="https://img.shields.io/pypi/pyversions/spydra.svg"></a>
 </p>
 
 <p align="center">
-    <a href="https://scrapling.readthedocs.io/en/latest/parsing/selection.html"><strong>طرق الاختيار</strong></a>
+    <a href="https://spydra.readthedocs.io/en/latest/parsing/selection.html"><strong>طرق الاختيار</strong></a>
     &middot;
-    <a href="https://scrapling.readthedocs.io/en/latest/fetching/choosing.html"><strong>اختيار Fetcher</strong></a>
+    <a href="https://spydra.readthedocs.io/en/latest/fetching/choosing.html"><strong>اختيار Fetcher</strong></a>
     &middot;
-    <a href="https://scrapling.readthedocs.io/en/latest/spiders/architecture.html"><strong>العناكب</strong></a>
+    <a href="https://spydra.readthedocs.io/en/latest/spiders/architecture.html"><strong>العناكب</strong></a>
     &middot;
-    <a href="https://scrapling.readthedocs.io/en/latest/spiders/proxy-blocking.html"><strong>تدوير البروكسي</strong></a>
+    <a href="https://spydra.readthedocs.io/en/latest/spiders/proxy-blocking.html"><strong>تدوير البروكسي</strong></a>
     &middot;
-    <a href="https://scrapling.readthedocs.io/en/latest/cli/overview.html"><strong>واجهة سطر الأوامر</strong></a>
+    <a href="https://spydra.readthedocs.io/en/latest/cli/overview.html"><strong>واجهة سطر الأوامر</strong></a>
     &middot;
-    <a href="https://scrapling.readthedocs.io/en/latest/ai/mcp-server.html"><strong>وضع MCP</strong></a>
+    <a href="https://spydra.readthedocs.io/en/latest/ai/mcp-server.html"><strong>وضع MCP</strong></a>
 </p>
 
-Scrapling هو إطار عمل تكيفي لـ Web Scraping يتعامل مع كل شيء من طلب واحد إلى زحف كامل النطاق.
+Spydra هو إطار عمل تكيفي لـ Web Scraping يتعامل مع كل شيء من طلب واحد إلى زحف كامل النطاق.
 
 محلله يتعلم من تغييرات المواقع ويعيد تحديد موقع عناصرك تلقائياً عند تحديث الصفحات. جوالبه تتجاوز أنظمة مكافحة الروبوتات مثل Cloudflare Turnstile مباشرةً. وإطار عمل Spider الخاص به يتيح لك التوسع إلى عمليات زحف متزامنة ومتعددة الجلسات مع إيقاف/استئناف وتدوير تلقائي لـ Proxy - كل ذلك في بضعة أسطر من Python. مكتبة واحدة، بدون تنازلات.
 
@@ -76,8 +76,8 @@ MySpider().start()
 ```
 
 <p align="center">
-    <a href="https://dataimpulse.com/?utm_source=scrapling&utm_medium=banner&utm_campaign=scrapling" target="_blank" style="display:flex; justify-content:center; padding:4px 0;">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/DataImpulse.png" alt="At DataImpulse, we specialize in developing custom proxy services for your business. Make requests from anywhere, collect data, and enjoy fast connections with our premium proxies." style="max-height:60px;">
+    <a href="https://dataimpulse.com/?utm_source=spydra&utm_medium=banner&utm_campaign=spydra" target="_blank" style="display:flex; justify-content:center; padding:4px 0;">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/DataImpulse.png" alt="At DataImpulse, we specialize in developing custom proxy services for your business. Make requests from anywhere, collect data, and enjoy fast connections with our premium proxies." style="max-height:60px;">
     </a>
 </p>
 
@@ -86,7 +86,7 @@ MySpider().start()
   <tr>
     <td width="200">
       <a href="https://coldproxy.com/" target="_blank" title="Residential, IPv6 & Datacenter Proxies for Web Scraping">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/coldproxy.png">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/coldproxy.png">
       </a>
     </td>
     <td> توفر <a href="https://coldproxy.com/" target="_blank"><b>ColdProxy</b></a> وكلاء سكنيين ووكلاء مراكز بيانات لاستخراج بيانات الويب بشكل مستقر، وجمع البيانات العامة، والاختبار الموجَّه جغرافياً في أكثر من 195 دولة.
@@ -94,21 +94,21 @@ MySpider().start()
   </tr>
   <tr>
     <td width="200">
-      <a href="https://hypersolutions.co/?utm_source=github&utm_medium=readme&utm_campaign=scrapling" target="_blank" title="Bot Protection Bypass API for Akamai, DataDome, Incapsula & Kasada">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/HyperSolutions.png">
+      <a href="https://hypersolutions.co/?utm_source=github&utm_medium=readme&utm_campaign=spydra" target="_blank" title="Bot Protection Bypass API for Akamai, DataDome, Incapsula & Kasada">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/HyperSolutions.png">
       </a>
     </td>
-    <td> Scrapling يتعامل مع Cloudflare Turnstile. للحماية على مستوى المؤسسات، توفر <a href="https://hypersolutions.co?utm_source=github&utm_medium=readme&utm_campaign=scrapling">
+    <td> Spydra يتعامل مع Cloudflare Turnstile. للحماية على مستوى المؤسسات، توفر <a href="https://hypersolutions.co?utm_source=github&utm_medium=readme&utm_campaign=spydra">
         <b>Hyper Solutions</b>
       </a> نقاط نهاية API تولّد رموز antibot صالحة لـ <b>Akamai</b>، <b>DataDome</b>، <b>Kasada</b> و <b>Incapsula</b>. استدعاءات API بسيطة، بدون أتمتة متصفح. </td>
   </tr>
   <tr>
     <td width="200">
-      <a href="https://birdproxies.com/t/scrapling" target="_blank" title="At Bird Proxies, we eliminate your pains such as banned IPs, geo restriction, and high costs so you can focus on your work.">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/BirdProxies.jpg">
+      <a href="https://birdproxies.com/t/spydra" target="_blank" title="At Bird Proxies, we eliminate your pains such as banned IPs, geo restriction, and high costs so you can focus on your work.">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/BirdProxies.jpg">
       </a>
     </td>
-    <td>مرحباً، لقد بنينا <a href="https://birdproxies.com/t/scrapling">
+    <td>مرحباً، لقد بنينا <a href="https://birdproxies.com/t/spydra">
         <b>BirdProxies</b>
       </a> لأن البروكسيات لا يجب أن تكون معقدة أو باهظة الثمن. <br /> بروكسيات سكنية و ISP سريعة في أكثر من 195 موقعاً، أسعار عادلة، ودعم حقيقي. <br />
       <b>جرّب لعبة FlappyBird على صفحة الهبوط للحصول على بيانات مجانية!</b>
@@ -116,12 +116,12 @@ MySpider().start()
   </tr>
   <tr>
     <td width="200">
-      <a href="https://evomi.com?utm_source=github&utm_medium=banner&utm_campaign=d4vinci-scrapling" target="_blank" title="Evomi is your Swiss Quality Proxy Provider, starting at $0.49/GB">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/evomi.png">
+      <a href="https://evomi.com?utm_source=github&utm_medium=banner&utm_campaign=d4vinci-spydra" target="_blank" title="Evomi is your Swiss Quality Proxy Provider, starting at $0.49/GB">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/evomi.png">
       </a>
     </td>
     <td>
-      <a href="https://evomi.com?utm_source=github&utm_medium=banner&utm_campaign=d4vinci-scrapling">
+      <a href="https://evomi.com?utm_source=github&utm_medium=banner&utm_campaign=d4vinci-spydra">
         <b>Evomi</b>
       </a>: بروكسيات سكنية بدءاً من 0.49$/جيجابايت. متصفح سكرابينج مع Chromium مُزيّف بالكامل، عناوين IP سكنية، حل تلقائي لـ CAPTCHA، وتجاوز أنظمة مكافحة البوتات. </br>
       <b>واجهة Scraper API لنتائج بدون عناء. تكاملات MCP و N8N متاحة.</b>
@@ -129,18 +129,18 @@ MySpider().start()
   </tr>
   <tr>
     <td width="200">
-      <a href="https://tikhub.io/?utm_source=github.com/D4Vinci/Scrapling&utm_medium=marketing_social&utm_campaign=retargeting&utm_content=carousel_ad" target="_blank" title="Unlock the Power of Social Media Data & AI">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/TikHub.jpg">
+      <a href="https://tikhub.io/?utm_source=github.com/D4Vinci/Spydra&utm_medium=marketing_social&utm_campaign=retargeting&utm_content=carousel_ad" target="_blank" title="Unlock the Power of Social Media Data & AI">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/TikHub.jpg">
       </a>
     </td>
     <td>
-      <a href="https://tikhub.io/?utm_source=github.com/D4Vinci/Scrapling&utm_medium=marketing_social&utm_campaign=retargeting&utm_content=carousel_ad" target="_blank">TikHub.io</a> يوفر أكثر من 900 واجهة API مستقرة عبر أكثر من 16 منصة تشمل TikTok و X و YouTube و Instagram، مع أكثر من 40 مليون مجموعة بيانات. <br /> يقدم أيضاً <a href="https://ai.tikhub.io/?ref=KarimShoair" target="_blank">نماذج ذكاء اصطناعي بأسعار مخفضة</a> - Claude و GPT و GEMINI والمزيد بخصم يصل إلى 71%.
+      <a href="https://tikhub.io/?utm_source=github.com/D4Vinci/Spydra&utm_medium=marketing_social&utm_campaign=retargeting&utm_content=carousel_ad" target="_blank">TikHub.io</a> يوفر أكثر من 900 واجهة API مستقرة عبر أكثر من 16 منصة تشمل TikTok و X و YouTube و Instagram، مع أكثر من 40 مليون مجموعة بيانات. <br /> يقدم أيضاً <a href="https://ai.tikhub.io/?ref=KarimShoair" target="_blank">نماذج ذكاء اصطناعي بأسعار مخفضة</a> - Claude و GPT و GEMINI والمزيد بخصم يصل إلى 71%.
     </td>
   </tr>
   <tr>
     <td width="200">
       <a href="https://www.nsocks.com/?keyword=2p67aivg" target="_blank" title="Scalable Web Data Access for AI Applications">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/nsocks.png">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/nsocks.png">
       </a>
     </td>
     <td>
@@ -150,7 +150,7 @@ MySpider().start()
   <tr>
     <td width="200">
       <a href="https://petrosky.io/d4vinci" target="_blank" title="PetroSky delivers cutting-edge VPS hosting.">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/petrosky.png">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/petrosky.png">
       </a>
     </td>
     <td>
@@ -160,18 +160,18 @@ MySpider().start()
   </tr>
   <tr>
     <td width="200">
-      <a href="https://substack.thewebscraping.club/p/scrapling-hands-on-guide?utm_source=github&utm_medium=repo&utm_campaign=scrapling" target="_blank" title="The #1 newsletter dedicated to Web Scraping">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/TWSC.png">
+      <a href="https://substack.thewebscraping.club/p/spydra-hands-on-guide?utm_source=github&utm_medium=repo&utm_campaign=spydra" target="_blank" title="The #1 newsletter dedicated to Web Scraping">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/TWSC.png">
       </a>
     </td>
     <td>
-    اقرأ مراجعة كاملة عن <a href="https://substack.thewebscraping.club/p/scrapling-hands-on-guide?utm_source=github&utm_medium=repo&utm_campaign=scrapling" target="_blank">Scrapling على The Web Scraping Club</a> (نوفمبر 2025)، النشرة الإخبارية الأولى المخصصة لكشط الويب.
+    اقرأ مراجعة كاملة عن <a href="https://substack.thewebscraping.club/p/spydra-hands-on-guide?utm_source=github&utm_medium=repo&utm_campaign=spydra" target="_blank">Spydra على The Web Scraping Club</a> (نوفمبر 2025)، النشرة الإخبارية الأولى المخصصة لكشط الويب.
     </td>
   </tr>
   <tr>
     <td width="200">
       <a href="http://mangoproxy.com/?utm_source=D4Vinci&utm_medium=GitHub&utm_campaign=D4Vinci" target="_blank" title="Proxies You Can Rely On: Residential, Server, and Mobile">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/MangoProxy.png">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/MangoProxy.png">
       </a>
     </td>
     <td>
@@ -181,7 +181,7 @@ MySpider().start()
   <tr>
     <td width="200">
       <a href="https://www.swiftproxy.net/?ref=D4Vinci" target="_blank" title="Scalable Solutions for Web Data Access">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/SwiftProxy.png">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/SwiftProxy.png">
       </a>
     </td>
     <td>
@@ -191,7 +191,7 @@ MySpider().start()
   <tr>
     <td width="200">
       <a href="https://9proxy.com/pricing?tab=traffic&utm_source=Github&utm_campaign=D4vinci" target="_blank" title="Top-Tier Residential Proxy Solution for the Highest Success Rate">
-        <img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/9proxy.png">
+        <img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/9proxy.png">
       </a>
     </td>
     <td>
@@ -204,18 +204,18 @@ MySpider().start()
 # الرعاة
 
 <!-- sponsors -->
-<a href="https://www.crawleo.dev/?utm_source=github&utm_medium=sponsor&utm_campaign=scrapling" target="_blank" title="Supercharge your AI with Real-Time Web Intelligence"><img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/crawleo.png"></a>
+<a href="https://www.crawleo.dev/?utm_source=github&utm_medium=sponsor&utm_campaign=spydra" target="_blank" title="Supercharge your AI with Real-Time Web Intelligence"><img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/crawleo.png"></a>
 <br/>
 
 
-<a href="https://serpapi.com/?utm_source=scrapling" target="_blank" title="Scrape Google and other search engines with SerpApi"><img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/SerpApi.png"></a>
-<a href="https://visit.decodo.com/Dy6W0b" target="_blank" title="Try the Most Efficient Residential Proxies for Free"><img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/decodo.png"></a>
-<a href="https://hasdata.com/?utm_source=github&utm_medium=banner&utm_campaign=D4Vinci" target="_blank" title="The web scraping service that actually beats anti-bot systems!"><img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/hasdata.png"></a>
-<a href="https://proxyempire.io/?ref=scrapling&utm_source=scrapling" target="_blank" title="Collect The Data Your Project Needs with the Best Residential Proxies"><img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/ProxyEmpire.png"></a>
-<a href="https://www.webshare.io/?referral_code=48r2m2cd5uz1" target="_blank" title="The Most Reliable Proxy with Unparalleled Performance"><img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/webshare.png"></a>
-<a href="https://www.ipfoxy.com/?r=scrapling" target="_blank" title="Unlock the Full Potential of Global Business with IPFoxy's High-Quality Rotating and Dedicated Proxy Services."><img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/IPFoxy.jpg"></a>
-<a href="https://www.ipcook.com/?ref=EAENO9&utm_source=github&utm_medium=referral&utm_campaign=d4vinci_scrapling" target="_blank" title="Fast Proxies. Smart Pricing. Premium Performance."><img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/IPCook.png"></a>
-<a href="https://proxiware.com/?ref=scrapling" target="_blank" title="Collect Any Data. At Any Scale."><img src="https://raw.githubusercontent.com/D4Vinci/Scrapling/main/images/proxiware.png"></a>
+<a href="https://serpapi.com/?utm_source=spydra" target="_blank" title="Scrape Google and other search engines with SerpApi"><img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/SerpApi.png"></a>
+<a href="https://visit.decodo.com/Dy6W0b" target="_blank" title="Try the Most Efficient Residential Proxies for Free"><img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/decodo.png"></a>
+<a href="https://hasdata.com/?utm_source=github&utm_medium=banner&utm_campaign=D4Vinci" target="_blank" title="The web scraping service that actually beats anti-bot systems!"><img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/hasdata.png"></a>
+<a href="https://proxyempire.io/?ref=spydra&utm_source=spydra" target="_blank" title="Collect The Data Your Project Needs with the Best Residential Proxies"><img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/ProxyEmpire.png"></a>
+<a href="https://www.webshare.io/?referral_code=48r2m2cd5uz1" target="_blank" title="The Most Reliable Proxy with Unparalleled Performance"><img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/webshare.png"></a>
+<a href="https://www.ipfoxy.com/?r=spydra" target="_blank" title="Unlock the Full Potential of Global Business with IPFoxy's High-Quality Rotating and Dedicated Proxy Services."><img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/IPFoxy.jpg"></a>
+<a href="https://www.ipcook.com/?ref=EAENO9&utm_source=github&utm_medium=referral&utm_campaign=d4vinci_spydra" target="_blank" title="Fast Proxies. Smart Pricing. Premium Performance."><img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/IPCook.png"></a>
+<a href="https://proxiware.com/?ref=spydra" target="_blank" title="Collect Any Data. At Any Scale."><img src="https://raw.githubusercontent.com/D4Vinci/Spydra/main/images/proxiware.png"></a>
 
 
 <!-- /sponsors -->
@@ -251,17 +251,17 @@ MySpider().start()
 - 🔄 **تتبع العناصر الذكي**: إعادة تحديد موقع العناصر بعد تغييرات الموقع باستخدام خوارزميات التشابه الذكية.
 - 🎯 **الاختيار المرن الذكي**: محددات CSS، محددات XPath، البحث القائم على الفلاتر، البحث النصي، البحث بالتعبيرات العادية والمزيد.
 - 🔍 **البحث عن عناصر مشابهة**: تحديد العناصر المشابهة للعناصر الموجودة تلقائياً.
-- 🤖 **خادم MCP للاستخدام مع الذكاء الاصطناعي**: خادم MCP مدمج لـ Web Scraping بمساعدة الذكاء الاصطناعي واستخراج البيانات. يتميز خادم MCP بقدرات قوية مخصصة تستفيد من Scrapling لاستخراج المحتوى المستهدف قبل تمريره إلى الذكاء الاصطناعي (Claude/Cursor/إلخ)، وبالتالي تسريع العمليات وتقليل التكاليف عن طريق تقليل استخدام الرموز. ([فيديو توضيحي](https://www.youtube.com/watch?v=qyFk3ZNwOxE))
+- 🤖 **خادم MCP للاستخدام مع الذكاء الاصطناعي**: خادم MCP مدمج لـ Web Scraping بمساعدة الذكاء الاصطناعي واستخراج البيانات. يتميز خادم MCP بقدرات قوية مخصصة تستفيد من Spydra لاستخراج المحتوى المستهدف قبل تمريره إلى الذكاء الاصطناعي (Claude/Cursor/إلخ)، وبالتالي تسريع العمليات وتقليل التكاليف عن طريق تقليل استخدام الرموز. ([فيديو توضيحي](https://www.youtube.com/watch?v=qyFk3ZNwOxE))
 
 ### بنية عالية الأداء ومختبرة ميدانياً
 - 🚀 **سريع كالبرق**: أداء محسّن يتفوق على معظم مكتبات Web Scraping في Python.
 - 🔋 **فعال في استخدام الذاكرة**: هياكل بيانات محسّنة وتحميل كسول لأقل استخدام للذاكرة.
 - ⚡ **تسلسل JSON سريع**: أسرع 10 مرات من المكتبة القياسية.
-- 🏗️ **مُختبر ميدانياً**: لا يمتلك Scrapling فقط تغطية اختبار بنسبة 92٪ وتغطية كاملة لتلميحات الأنواع، بل تم استخدامه يومياً من قبل مئات مستخرجي الويب خلال العام الماضي.
+- 🏗️ **مُختبر ميدانياً**: لا يمتلك Spydra فقط تغطية اختبار بنسبة 92٪ وتغطية كاملة لتلميحات الأنواع، بل تم استخدامه يومياً من قبل مئات مستخرجي الويب خلال العام الماضي.
 
 ### تجربة صديقة للمطورين/مستخرجي الويب
-- 🎯 **Shell تفاعلي لـ Web Scraping**: Shell IPython مدمج اختياري مع تكامل Scrapling، واختصارات، وأدوات جديدة لتسريع تطوير سكريبتات Web Scraping، مثل تحويل طلبات curl إلى طلبات Scrapling وعرض نتائج الطلبات في متصفحك.
-- 🚀 **استخدمه مباشرة من الطرفية**: اختيارياً، يمكنك استخدام Scrapling لاستخراج عنوان URL دون كتابة سطر واحد من الكود!
+- 🎯 **Shell تفاعلي لـ Web Scraping**: Shell IPython مدمج اختياري مع تكامل Spydra، واختصارات، وأدوات جديدة لتسريع تطوير سكريبتات Web Scraping، مثل تحويل طلبات curl إلى طلبات Spydra وعرض نتائج الطلبات في متصفحك.
+- 🚀 **استخدمه مباشرة من الطرفية**: اختيارياً، يمكنك استخدام Spydra لاستخراج عنوان URL دون كتابة سطر واحد من الكود!
 - 🛠️ **واجهة تنقل غنية**: اجتياز DOM متقدم مع طرق التنقل بين العناصر الوالدية والشقيقة والفرعية.
 - 🧬 **معالجة نصوص محسّنة**: تعبيرات عادية مدمجة وطرق تنظيف وعمليات نصية محسّنة.
 - 📝 **إنشاء محددات تلقائي**: إنشاء محددات CSS/XPath قوية لأي عنصر.
@@ -271,7 +271,7 @@ MySpider().start()
 
 ## البدء
 
-لنلقِ نظرة سريعة على ما يمكن لـ Scrapling فعله دون التعمق.
+لنلقِ نظرة سريعة على ما يمكن لـ Spydra فعله دون التعمق.
 
 ### الاستخدام الأساسي
 طلبات HTTP مع دعم الجلسات
@@ -425,34 +425,34 @@ async with AsyncStealthySession(max_pages=2) as session:
 
 ## واجهة سطر الأوامر والـ Shell التفاعلي
 
-يتضمن Scrapling واجهة سطر أوامر قوية:
+يتضمن Spydra واجهة سطر أوامر قوية:
 
 [![asciicast](https://asciinema.org/a/736339.svg)](https://asciinema.org/a/736339)
 
 تشغيل Shell الـ Web Scraping التفاعلي
 ```bash
-scrapling shell
+spydra shell
 ```
 استخرج الصفحات إلى ملف مباشرة دون برمجة (يستخرج المحتوى داخل وسم `body` افتراضياً). إذا انتهى ملف الإخراج بـ `.txt`، فسيتم استخراج محتوى النص للهدف. إذا انتهى بـ `.md`، فسيكون تمثيل Markdown لمحتوى HTML؛ إذا انتهى بـ `.html`، فسيكون محتوى HTML نفسه.
 ```bash
-scrapling extract get 'https://example.com' content.md
-scrapling extract get 'https://example.com' content.txt --css-selector '#fromSkipToProducts' --impersonate 'chrome'  # جميع العناصر المطابقة لمحدد CSS '#fromSkipToProducts'
-scrapling extract fetch 'https://example.com' content.md --css-selector '#fromSkipToProducts' --no-headless
-scrapling extract stealthy-fetch 'https://nopecha.com/demo/cloudflare' captchas.html --css-selector '#padded_content a' --solve-cloudflare
+spydra extract get 'https://example.com' content.md
+spydra extract get 'https://example.com' content.txt --css-selector '#fromSkipToProducts' --impersonate 'chrome'  # جميع العناصر المطابقة لمحدد CSS '#fromSkipToProducts'
+spydra extract fetch 'https://example.com' content.md --css-selector '#fromSkipToProducts' --no-headless
+spydra extract stealthy-fetch 'https://nopecha.com/demo/cloudflare' captchas.html --css-selector '#padded_content a' --solve-cloudflare
 ```
 
 > [!NOTE]
-> هناك العديد من الميزات الإضافية، لكننا نريد إبقاء هذه الصفحة موجزة، بما في ذلك خادم MCP والـ Shell التفاعلي لـ Web Scraping. تحقق من الوثائق الكاملة [هنا](https://scrapling.readthedocs.io/en/latest/)
+> هناك العديد من الميزات الإضافية، لكننا نريد إبقاء هذه الصفحة موجزة، بما في ذلك خادم MCP والـ Shell التفاعلي لـ Web Scraping. تحقق من الوثائق الكاملة [هنا](https://spydra.readthedocs.io/en/latest/)
 
 ## معايير الأداء
 
-Scrapling ليس قوياً فحسب - بل هو أيضاً سريع بشكل مذهل. تقارن المعايير التالية محلل Scrapling مع أحدث إصدارات المكتبات الشائعة الأخرى.
+Spydra ليس قوياً فحسب - بل هو أيضاً سريع بشكل مذهل. تقارن المعايير التالية محلل Spydra مع أحدث إصدارات المكتبات الشائعة الأخرى.
 
 ### اختبار سرعة استخراج النص (5000 عنصر متداخل)
 
-| # |      المكتبة      | الوقت (ms) | vs Scrapling |
+| # |      المكتبة      | الوقت (ms) | vs Spydra |
 |---|:-----------------:|:----------:|:------------:|
-| 1 |     Scrapling     |    2.02    |     1.0x     |
+| 1 |     Spydra     |    2.02    |     1.0x     |
 | 2 |   Parsel/Scrapy   |    2.04    |     1.01     |
 | 3 |     Raw Lxml      |    2.54    |    1.257     |
 | 4 |      PyQuery      |   24.17    |     ~12x     |
@@ -464,22 +464,22 @@ Scrapling ليس قوياً فحسب - بل هو أيضاً سريع بشكل م
 
 ### أداء تشابه العناصر والبحث النصي
 
-قدرات العثور على العناصر التكيفية لـ Scrapling تتفوق بشكل كبير على البدائل:
+قدرات العثور على العناصر التكيفية لـ Spydra تتفوق بشكل كبير على البدائل:
 
-| المكتبة     | الوقت (ms) | vs Scrapling |
+| المكتبة     | الوقت (ms) | vs Spydra |
 |-------------|:----------:|:------------:|
-| Scrapling   |    2.39    |     1.0x     |
+| Spydra   |    2.39    |     1.0x     |
 | AutoScraper |   12.45    |    5.209x    |
 
 
-> تمثل جميع المعايير متوسطات أكثر من 100 تشغيل. انظر [benchmarks.py](https://github.com/D4Vinci/Scrapling/blob/main/benchmarks.py) للمنهجية.
+> تمثل جميع المعايير متوسطات أكثر من 100 تشغيل. انظر [benchmarks.py](https://github.com/D4Vinci/Spydra/blob/main/benchmarks.py) للمنهجية.
 
 ## التثبيت
 
-يتطلب Scrapling إصدار Python 3.10 أو أعلى:
+يتطلب Spydra إصدار Python 3.10 أو أعلى:
 
 ```bash
-pip install scrapling
+pip install spydra
 ```
 
 يتضمن هذا التثبيت فقط محرك المحلل وتبعياته، بدون أي جوالب أو تبعيات سطر الأوامر.
@@ -490,8 +490,8 @@ pip install scrapling
     ```bash
     pip install "spydra[fetchers]"
 
-    scrapling install           # normal install
-    scrapling install  --force  # force reinstall
+    spydra install           # normal install
+    spydra install  --force  # force reinstall
     ```
 
     يقوم هذا بتنزيل جميع المتصفحات، إلى جانب تبعيات النظام وتبعيات معالجة fingerprint الخاصة بها.
@@ -517,22 +517,22 @@ pip install scrapling
        ```bash
        pip install "spydra[all]"
        ```
-   تذكر أنك تحتاج إلى تثبيت تبعيات المتصفح مع `scrapling install` بعد أي من هذه الإضافات (إذا لم تكن قد فعلت ذلك بالفعل)
+   تذكر أنك تحتاج إلى تثبيت تبعيات المتصفح مع `spydra install` بعد أي من هذه الإضافات (إذا لم تكن قد فعلت ذلك بالفعل)
 
 ### Docker
 يمكنك أيضاً تثبيت صورة Docker مع جميع الإضافات والمتصفحات باستخدام الأمر التالي من DockerHub:
 ```bash
-docker pull pyd4vinci/scrapling
+docker pull pyd4vinci/spydra
 ```
 أو تنزيلها من سجل GitHub:
 ```bash
-docker pull ghcr.io/d4vinci/scrapling:latest
+docker pull ghcr.io/d4vinci/spydra:latest
 ```
 يتم بناء هذه الصورة ودفعها تلقائياً باستخدام GitHub Actions والفرع الرئيسي للمستودع.
 
 ## المساهمة
 
-نرحب بالمساهمات! يرجى قراءة [إرشادات المساهمة](https://github.com/D4Vinci/Scrapling/blob/main/CONTRIBUTING.md) قبل البدء.
+نرحب بالمساهمات! يرجى قراءة [إرشادات المساهمة](https://github.com/D4Vinci/Spydra/blob/main/CONTRIBUTING.md) قبل البدء.
 
 ## إخلاء المسؤولية
 
@@ -542,11 +542,11 @@ docker pull ghcr.io/d4vinci/scrapling:latest
 ## 🎓 الاستشهادات
 إذا استخدمت مكتبتنا لأغراض بحثية، يرجى الاستشهاد بنا بالمرجع التالي:
 ```text
-  @misc{scrapling,
+  @misc{spydra,
     author = {Karim Shoair},
-    title = {Scrapling},
+    title = {Spydra},
     year = {2024},
-    url = {https://github.com/D4Vinci/Scrapling},
+    url = {https://github.com/D4Vinci/Spydra},
     note = {An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!}
   }
 ```
@@ -558,7 +558,7 @@ docker pull ghcr.io/d4vinci/scrapling:latest
 ## الشكر والتقدير
 
 يتضمن هذا المشروع كوداً معدلاً من:
-- Parsel (ترخيص BSD) - يُستخدم للوحدة الفرعية [translator](https://github.com/D4Vinci/Scrapling/blob/main/scrapling/core/translator.py)
+- Parsel (ترخيص BSD) - يُستخدم للوحدة الفرعية [translator](https://github.com/D4Vinci/Spydra/blob/main/spydra/core/translator.py)
 
 ---
 <div align="center"><small>مصمم ومصنوع بـ ❤️ بواسطة كريم شعير.</small></div><br>

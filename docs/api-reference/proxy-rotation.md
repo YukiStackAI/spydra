@@ -13,6 +13,6 @@ You can import it directly like below:
 from spydra.fetchers import ProxyRotator
 ```
 
-## ::: scrapling.engines.toolbelt.proxy_rotation.ProxyRotator
+## ::: spydra.engines.toolbelt.proxy_rotation.ProxyRotator
     handler: python
     :docstring:

@@ -37,7 +37,7 @@ def setup_logger():
     return logger
 
 
-_current_logger: ContextVar[logging.Logger] = ContextVar("scrapling_logger", default=setup_logger())
+_current_logger: ContextVar[logging.Logger] = ContextVar("spydra_logger", default=setup_logger())
 
 
 class LoggerProxy:

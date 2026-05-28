@@ -1,7 +1,7 @@
 import pytest
 import json
 
-from scrapling import Selector
+from spydra import Selector
 from spydra.core.custom_types import AttributesHandler
 
 

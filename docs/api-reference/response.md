@@ -13,6 +13,6 @@ You can import the `Response` class like below:
 from spydra.engines.toolbelt.custom import Response
 ```
 
-## ::: scrapling.engines.toolbelt.custom.Response
+## ::: spydra.engines.toolbelt.custom.Response
     handler: python
     :docstring:

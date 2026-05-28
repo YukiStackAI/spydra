@@ -5,20 +5,20 @@ search:
 
 # MCP Server API Reference
 
-The **Scrapling MCP Server** provides nine powerful tools for web scraping through the Model Context Protocol (MCP). This server integrates Scrapling's capabilities directly into AI chatbots and agents, allowing conversational web scraping with advanced anti-bot bypass features.
+The **Spydra MCP Server** provides nine powerful tools for web scraping through the Model Context Protocol (MCP). This server integrates Spydra's capabilities directly into AI chatbots and agents, allowing conversational web scraping with advanced anti-bot bypass features.
 
 You can start the MCP server by running:
 
 ```bash
-scrapling mcp
+spydra mcp
 ```
 
 Or import the server class directly:
 
 ```python
-from spydra.core.ai import ScraplingMCPServer
+from spydra.core.ai import SpydraMCPServer
 
-server = ScraplingMCPServer()
+server = SpydraMCPServer()
 server.serve(http=False, host="0.0.0.0", port=8000)
 ```
 
@@ -26,7 +26,7 @@ server.serve(http=False, host="0.0.0.0", port=8000)
 
 The standardized response structure that's returned by all MCP server tools:
 
-## ::: scrapling.core.ai.ResponseModel
+## ::: spydra.core.ai.ResponseModel
     handler: python
     :docstring:
 
@@ -34,15 +34,15 @@ The standardized response structure that's returned by all MCP server tools:
 
 Model classes for session management:
 
-## ::: scrapling.core.ai.SessionInfo
+## ::: spydra.core.ai.SessionInfo
     handler: python
     :docstring:
 
-## ::: scrapling.core.ai.SessionCreatedModel
+## ::: spydra.core.ai.SessionCreatedModel
     handler: python
     :docstring:
 
-## ::: scrapling.core.ai.SessionClosedModel
+## ::: spydra.core.ai.SessionClosedModel
     handler: python
     :docstring:
 
@@ -50,6 +50,6 @@ Model classes for session management:
 
 The main MCP server class that provides all web scraping tools:
 
-## ::: scrapling.core.ai.ScraplingMCPServer
+## ::: spydra.core.ai.SpydraMCPServer
     handler: python
     :docstring:

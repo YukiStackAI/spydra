@@ -1,6 +1,6 @@
 # Generic Spider Templates
 
-Most crawls fall into one of two patterns: "follow links matching this pattern" or "crawl every URL listed in the site's sitemap". Scrapling ships templates for both so you don't have to hand-write the same `parse()` boilerplate every time.
+Most crawls fall into one of two patterns: "follow links matching this pattern" or "crawl every URL listed in the site's sitemap". Spydra ships templates for both so you don't have to hand-write the same `parse()` boilerplate every time.
 
 All templates build on `LinkExtractor`, which pulls URLs out of a `Response` (or filters a single URL via `matches()`). `SitemapSpider` additionally parses sitemap.xml / sitemap_index.xml bodies internally (gzip-compressed or not).
 

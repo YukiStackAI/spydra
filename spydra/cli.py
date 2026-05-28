@@ -13,7 +13,7 @@ try:
     from click import command, option, Choice, group, argument
 except (ImportError, ModuleNotFoundError) as e:
     raise ModuleNotFoundError(
-        "You need to install scrapling with any of the extras to enable Shell commands. See: https://scrapling.readthedocs.io/en/latest/#installation"
+        "You need to install spydra with any of the extras to enable Shell commands. See: https://spydra.readthedocs.io/en/latest/#installation"
     ) from e
 
 __OUTPUT_FILE_HELP__ = "The output file path can be an HTML file, a Markdown file of the HTML content, or the text content itself. Use file extensions (`.html`/`.md`/`.txt`) respectively."
@@ -105,7 +105,7 @@ def __BuildRequest(headers: List[str], cookies: str, params: str, json: Optional
     return {**request_kwargs, **kwargs}
 
 
-@command(help="Install all Scrapling's Fetchers dependencies")
+@command(help="Install all Spydra's Fetchers dependencies")
 @option(
     "-f",
     "--force",
@@ -113,10 +113,10 @@ def __BuildRequest(headers: List[str], cookies: str, params: str, json: Optional
     is_flag=True,
     default=False,
     type=bool,
-    help="Force Scrapling to reinstall all Fetchers dependencies",
+    help="Force Spydra to reinstall all Fetchers dependencies",
 )
 def install(force):  # pragma: no cover
-    if force or not __PACKAGE_DIR__.joinpath(".scrapling_dependencies_installed").exists():
+    if force or not __PACKAGE_DIR__.joinpath(".spydra_dependencies_installed").exists():
         __Execute(
             [python_executable, "-m", "playwright", "install", "chromium"],
             "Playwright browsers",
@@ -135,12 +135,12 @@ def install(force):  # pragma: no cover
 
         update_tld_names(fail_silently=True)
         # if no errors raised by the above commands, then we add the below file
-        __PACKAGE_DIR__.joinpath(".scrapling_dependencies_installed").touch()
+        __PACKAGE_DIR__.joinpath(".spydra_dependencies_installed").touch()
     else:
         print("The dependencies are already installed")
 
 
-@command(help="Run Scrapling's MCP server (Check the docs for more info).")
+@command(help="Run Spydra's MCP server (Check the docs for more info).")
 @option(
     "--http",
     is_flag=True,
@@ -157,9 +157,9 @@ def install(force):  # pragma: no cover
     "--port", type=int, default=8000, help="The port to use if streamable-http transport is enabled (Default: 8000)"
 )
 def mcp(http, host, port):
-    from spydra.core.ai import ScraplingMCPServer
+    from spydra.core.ai import SpydraMCPServer
 
-    server = ScraplingMCPServer()
+    server = SpydraMCPServer()
     server.serve(http, host, port)
 
 

@@ -50,8 +50,8 @@ Examples are the best way to explain this:
 from spydra.fetchers import Fetcher
 # Basic GET
 page = Fetcher.get('https://example.com')
-page = Fetcher.get('https://scrapling.requestcatcher.com/get', stealthy_headers=True)
-page = Fetcher.get('https://scrapling.requestcatcher.com/get', proxy='http://username:password@localhost:8030')
+page = Fetcher.get('https://spydra.requestcatcher.com/get', stealthy_headers=True)
+page = Fetcher.get('https://spydra.requestcatcher.com/get', proxy='http://username:password@localhost:8030')
 # With parameters
 page = Fetcher.get('https://example.com/search', params={'q': 'query'})
 
@@ -69,8 +69,8 @@ And for asynchronous requests, it's a small adjustment
 from spydra.fetchers import AsyncFetcher
 # Basic GET
 page = await AsyncFetcher.get('https://example.com')
-page = await AsyncFetcher.get('https://scrapling.requestcatcher.com/get', stealthy_headers=True)
-page = await AsyncFetcher.get('https://scrapling.requestcatcher.com/get', proxy='http://username:password@localhost:8030')
+page = await AsyncFetcher.get('https://spydra.requestcatcher.com/get', stealthy_headers=True)
+page = await AsyncFetcher.get('https://spydra.requestcatcher.com/get', proxy='http://username:password@localhost:8030')
 # With parameters
 page = await AsyncFetcher.get('https://example.com/search', params={'q': 'query'})
 
@@ -104,9 +104,9 @@ The `page` object in all cases is a [Response](choosing.md#response-object) obje
 ```python
 from spydra.fetchers import Fetcher
 # Basic POST
-page = Fetcher.post('https://scrapling.requestcatcher.com/post', data={'key': 'value'}, params={'q': 'query'})
-page = Fetcher.post('https://scrapling.requestcatcher.com/post', data={'key': 'value'}, stealthy_headers=True)
-page = Fetcher.post('https://scrapling.requestcatcher.com/post', data={'key': 'value'}, proxy='http://username:password@localhost:8030', impersonate="chrome")
+page = Fetcher.post('https://spydra.requestcatcher.com/post', data={'key': 'value'}, params={'q': 'query'})
+page = Fetcher.post('https://spydra.requestcatcher.com/post', data={'key': 'value'}, stealthy_headers=True)
+page = Fetcher.post('https://spydra.requestcatcher.com/post', data={'key': 'value'}, proxy='http://username:password@localhost:8030', impersonate="chrome")
 # Another example of form-encoded data
 page = Fetcher.post('https://example.com/submit', data={'username': 'user', 'password': 'pass'}, http3=True)
 # JSON data
@@ -116,9 +116,9 @@ And for asynchronous requests, it's a small adjustment
 ```python
 from spydra.fetchers import AsyncFetcher
 # Basic POST
-page = await AsyncFetcher.post('https://scrapling.requestcatcher.com/post', data={'key': 'value'})
-page = await AsyncFetcher.post('https://scrapling.requestcatcher.com/post', data={'key': 'value'}, stealthy_headers=True)
-page = await AsyncFetcher.post('https://scrapling.requestcatcher.com/post', data={'key': 'value'}, proxy='http://username:password@localhost:8030', impersonate="chrome")
+page = await AsyncFetcher.post('https://spydra.requestcatcher.com/post', data={'key': 'value'})
+page = await AsyncFetcher.post('https://spydra.requestcatcher.com/post', data={'key': 'value'}, stealthy_headers=True)
+page = await AsyncFetcher.post('https://spydra.requestcatcher.com/post', data={'key': 'value'}, proxy='http://username:password@localhost:8030', impersonate="chrome")
 # Another example of form-encoded data
 page = await AsyncFetcher.post('https://example.com/submit', data={'username': 'user', 'password': 'pass'}, http3=True)
 # JSON data
@@ -132,7 +132,7 @@ page = Fetcher.put('https://example.com/update', data={'status': 'updated'})
 page = Fetcher.put('https://example.com/update', data={'status': 'updated'}, stealthy_headers=True, impersonate="chrome")
 page = Fetcher.put('https://example.com/update', data={'status': 'updated'}, proxy='http://username:password@localhost:8030')
 # Another example of form-encoded data
-page = Fetcher.put("https://scrapling.requestcatcher.com/put", data={'key': ['value1', 'value2']})
+page = Fetcher.put("https://spydra.requestcatcher.com/put", data={'key': ['value1', 'value2']})
 ```
 And for asynchronous requests, it's a small adjustment
 ```python
@@ -142,7 +142,7 @@ page = await AsyncFetcher.put('https://example.com/update', data={'status': 'upd
 page = await AsyncFetcher.put('https://example.com/update', data={'status': 'updated'}, stealthy_headers=True, impersonate="chrome")
 page = await AsyncFetcher.put('https://example.com/update', data={'status': 'updated'}, proxy='http://username:password@localhost:8030')
 # Another example of form-encoded data
-page = await AsyncFetcher.put("https://scrapling.requestcatcher.com/put", data={'key': ['value1', 'value2']})
+page = await AsyncFetcher.put("https://spydra.requestcatcher.com/put", data={'key': ['value1', 'value2']})
 ```
 
 #### DELETE
@@ -178,8 +178,8 @@ with FetcherSession(
     retries=3
 ) as session:
     # Make multiple requests with the same settings and the same cookies
-    page1 = session.get('https://scrapling.requestcatcher.com/get')
-    page2 = session.post('https://scrapling.requestcatcher.com/post', data={'key': 'value'})
+    page1 = session.get('https://spydra.requestcatcher.com/get')
+    page2 = session.post('https://spydra.requestcatcher.com/post', data={'key': 'value'})
     page3 = session.get('https://api.github.com/events')
 
     # All requests share the same session and connection pool
@@ -222,9 +222,9 @@ And here's an async example
 async with FetcherSession(impersonate='firefox', http3=True) as session:
     # All standard HTTP methods available
     response = await session.get('https://example.com')
-    response = await session.post('https://scrapling.requestcatcher.com/post', json={'data': 'value'})
-    response = await session.put('https://scrapling.requestcatcher.com/put', data={'update': 'info'})
-    response = await session.delete('https://scrapling.requestcatcher.com/delete')
+    response = await session.post('https://spydra.requestcatcher.com/post', json={'data': 'value'})
+    response = await session.put('https://spydra.requestcatcher.com/put', data={'update': 'info'})
+    response = await session.delete('https://spydra.requestcatcher.com/delete')
 ```
 or better
 ```python
@@ -301,7 +301,7 @@ def scrape_products():
 ```python
 from spydra.fetchers import Fetcher
 
-page = Fetcher.get('https://raw.githubusercontent.com/D4Vinci/Scrapling/main/docs/assets/main_cover.png')
+page = Fetcher.get('https://raw.githubusercontent.com/D4Vinci/Spydra/main/docs/assets/main_cover.png')
 with open(file='main_cover.png', mode='wb') as f:
    f.write(page.body)
 ```

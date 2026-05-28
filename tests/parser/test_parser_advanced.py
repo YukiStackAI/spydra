@@ -2,7 +2,7 @@ import re
 import pytest
 from unittest.mock import Mock
 
-from scrapling import Selector, Selectors
+from spydra import Selector, Selectors
 from spydra.core.custom_types import TextHandler, TextHandlers
 from spydra.core.storage import SQLiteStorageSystem
 

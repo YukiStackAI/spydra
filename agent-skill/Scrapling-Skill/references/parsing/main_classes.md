@@ -1,8 +1,8 @@
 # Parsing main classes
 
-The [Selector](#selector) class is the core parsing engine in Scrapling, providing HTML parsing and element selection capabilities. You can always import it with any of the following imports
+The [Selector](#selector) class is the core parsing engine in Spydra, providing HTML parsing and element selection capabilities. You can always import it with any of the following imports
 ```python
-from scrapling import Selector
+from spydra import Selector
 from spydra.parser import Selector
 ```
 Usage:
@@ -15,7 +15,7 @@ page = Selector(
 # Then select elements as you like
 elements = page.css('.product')
 ```
-In Scrapling, the main object you deal with after passing an HTML source or fetching a website is, of course, a [Selector](#selector) object. Any operation you do, like selection, navigation, etc., will return either a [Selector](#selector) object or a [Selectors](#selectors) object, given that the result is element/elements from the page, not text or similar.
+In Spydra, the main object you deal with after passing an HTML source or fetching a website is, of course, a [Selector](#selector) object. Any operation you do, like selection, navigation, etc., will return either a [Selector](#selector) object or a [Selectors](#selectors) object, given that the result is element/elements from the page, not text or similar.
 
 The main page is a [Selector](#selector) object, and the elements within are [Selector](#selector) objects. Any text (text content inside elements or attribute values) is a [TextHandler](#texthandler) object, and element attributes are stored as [AttributesHandler](#attributeshandler).
 
@@ -33,7 +33,7 @@ Arguments for parsing adjustments:
 
 The arguments `huge_tree` and `root` are advanced features not covered here.
 
-Most properties on the main page and its elements are lazily loaded (not initialized until accessed), which contributes to Scrapling's speed.
+Most properties on the main page and its elements are lazily loaded (not initialized until accessed), which contributes to Spydra's speed.
 
 ### Properties
 Properties for traversal are separated in the [traversal](#traversal) section below.
@@ -79,7 +79,7 @@ Parsing this HTML page as an example:
 ```
 Load the page directly as shown before:
 ```python
-from scrapling import Selector
+from spydra import Selector
 page = Selector(html_doc)
 ```
 Get all text content on the page recursively
@@ -437,7 +437,7 @@ The `re` and `re_first` methods exist in [Selector](#selector), [Selectors](#sel
     ```
     Examples with custom strings demonstrating the other arguments:
     ```python
-    >>> from scrapling import TextHandler
+    >>> from spydra import TextHandler
     >>> test_string = TextHandler('hi  there')  # Hence the two spaces
     >>> test_string.re('hi there')
     >>> test_string.re('hi there', clean_match=True)  # Using `clean_match` will clean the string before matching the regex

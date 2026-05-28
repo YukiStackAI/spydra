@@ -3,7 +3,7 @@ import pytest
 import pytest_httpbin
 from unittest.mock import patch, MagicMock
 
-from scrapling import Fetcher
+from spydra import Fetcher
 from spydra.fetchers import FetcherSession
 from spydra.engines.static import _select_random_browser
 

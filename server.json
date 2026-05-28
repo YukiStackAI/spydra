@@ -1,16 +1,16 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.D4Vinci/Scrapling",
-  "title": "Scrapling MCP Server",
+  "name": "io.github.D4Vinci/Spydra",
+  "title": "Spydra MCP Server",
   "description": "Web scraping with stealth HTTP, real browsers, and Cloudflare bypass. CSS selectors supported.",
-  "websiteUrl": "https://scrapling.readthedocs.io/en/latest/ai/mcp-server.html",
+  "websiteUrl": "https://spydra.readthedocs.io/en/latest/ai/mcp-server.html",
   "repository": {
-    "url": "https://github.com/D4Vinci/Scrapling",
+    "url": "https://github.com/D4Vinci/Spydra",
     "source": "github"
   },
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/D4Vinci/Scrapling/main/docs/assets/logo.png",
+      "src": "https://raw.githubusercontent.com/D4Vinci/Spydra/main/docs/assets/logo.png",
       "mimeType": "image/png"
     }
   ],
@@ -18,7 +18,7 @@
   "packages": [
     {
       "registryType": "pypi",
-      "identifier": "scrapling",
+      "identifier": "spydra",
       "version": "0.4.8",
       "runtimeHint": "uvx",
       "packageArguments": [
@@ -34,7 +34,7 @@
     },
     {
       "registryType": "oci",
-      "identifier": "ghcr.io/d4vinci/scrapling",
+      "identifier": "ghcr.io/d4vinci/spydra",
       "packageArguments": [
         {
           "type": "positional",

@@ -3,7 +3,7 @@ Tests for Selector.iterancestors() and Selector.find_ancestor() methods.
 Target file: tests/parser/test_general.py (append to TestElementNavigation class)
 """
 import pytest
-from scrapling import Selector
+from spydra import Selector
 
 
 @pytest.fixture

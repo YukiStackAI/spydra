@@ -1,5 +1,5 @@
 <!--
-  You are amazing! Thanks for contributing to Scrapling!
+  You are amazing! Thanks for contributing to Spydra!
   Please, DO NOT DELETE ANY TEXT from this template! (unless instructed).
 -->
 
@@ -12,7 +12,7 @@
 
 ### Type of change:
 <!--
-  What type of change does your PR introduce to Scrapling?
+  What type of change does your PR introduce to Spydra?
   NOTE: Please, check at least 1 box!
   If your PR requires multiple boxes to be checked, you'll most likely need to
   split it into multiple PRs. This makes things easier and faster to code review.
@@ -41,7 +41,7 @@
 - Link to documentation pull request: **
 
 ### Checklist:
-* [ ] I have read [CONTRIBUTING.md](https://github.com/D4Vinci/Scrapling/blob/main/CONTRIBUTING.md).
+* [ ] I have read [CONTRIBUTING.md](https://github.com/D4Vinci/Spydra/blob/main/CONTRIBUTING.md).
 * [ ] This pull request is all my own work -- I have not plagiarized.
 * [ ] I know that pull requests will not be merged if they fail the automated tests.
 * [ ] All new Python files are placed inside an existing directory.

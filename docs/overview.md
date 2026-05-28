@@ -251,7 +251,7 @@ You can search for a specific ancestor of an element that satisfies a function; 
 ```
 
 ## Fetching websites
-Instead of passing the raw HTML to Scrapling, you can retrieve a website's response directly via HTTP requests or by fetching it in a browser.
+Instead of passing the raw HTML to Spydra, you can retrieve a website's response directly via HTTP requests or by fetching it in a browser.
 
 A fetcher is made for every use case.
 
@@ -259,23 +259,23 @@ A fetcher is made for every use case.
 For simple HTTP requests, there's a `Fetcher` class that can be imported and used as below:
 ```python
 from spydra.fetchers import Fetcher
-page = Fetcher.get('https://scrapling.requestcatcher.com/get', impersonate="chrome")
+page = Fetcher.get('https://spydra.requestcatcher.com/get', impersonate="chrome")
 ```
 With that out of the way, here's how to do all HTTP methods:
 ```python
 from spydra.fetchers import Fetcher
-page = Fetcher.get('https://scrapling.requestcatcher.com/get', stealthy_headers=True)
-page = Fetcher.post('https://scrapling.requestcatcher.com/post', data={'key': 'value'}, proxy='http://username:password@localhost:8030')
-page = Fetcher.put('https://scrapling.requestcatcher.com/put', data={'key': 'value'})
-page = Fetcher.delete('https://scrapling.requestcatcher.com/delete')
+page = Fetcher.get('https://spydra.requestcatcher.com/get', stealthy_headers=True)
+page = Fetcher.post('https://spydra.requestcatcher.com/post', data={'key': 'value'}, proxy='http://username:password@localhost:8030')
+page = Fetcher.put('https://spydra.requestcatcher.com/put', data={'key': 'value'})
+page = Fetcher.delete('https://spydra.requestcatcher.com/delete')
 ```
 For Async requests, you will replace the import like below:
 ```python
 from spydra.fetchers import AsyncFetcher
-page = await AsyncFetcher.get('https://scrapling.requestcatcher.com/get', stealthy_headers=True)
-page = await AsyncFetcher.post('https://scrapling.requestcatcher.com/post', data={'key': 'value'}, proxy='http://username:password@localhost:8030')
-page = await AsyncFetcher.put('https://scrapling.requestcatcher.com/put', data={'key': 'value'})
-page = await AsyncFetcher.delete('https://scrapling.requestcatcher.com/delete')
+page = await AsyncFetcher.get('https://spydra.requestcatcher.com/get', stealthy_headers=True)
+page = await AsyncFetcher.post('https://spydra.requestcatcher.com/post', data={'key': 'value'}, proxy='http://username:password@localhost:8030')
+page = await AsyncFetcher.put('https://spydra.requestcatcher.com/put', data={'key': 'value'})
+page = await AsyncFetcher.delete('https://spydra.requestcatcher.com/delete')
 ```
 
 !!! note "Notes:"
@@ -339,4 +339,4 @@ Again, this is just the tip of the iceberg with this fetcher. Check out the rest
 
 ---
 
-That's Scrapling at a glance. If you want to learn more, continue to the next section.
+That's Spydra at a glance. If you want to learn more, continue to the next section.

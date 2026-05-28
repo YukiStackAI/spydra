@@ -44,7 +44,7 @@ class TestCLI:
 
     def test_mcp_command(self, runner):
         """Test MCP command"""
-        with patch('spydra.core.ai.ScraplingMCPServer') as mock_server:
+        with patch('spydra.core.ai.SpydraMCPServer') as mock_server:
             mock_instance = MagicMock()
             mock_server.return_value = mock_instance
 

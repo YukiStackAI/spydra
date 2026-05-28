@@ -108,7 +108,7 @@ class Spider(ABC):
         self.logger = logging.getLogger(f"spydra.spiders.{self.name}")
         self.logger.setLevel(self.logging_level)
         self.logger.handlers.clear()
-        self.logger.propagate = False  # Don't propagate to parent 'scrapling' logger
+        self.logger.propagate = False  # Don't propagate to parent 'spydra' logger
 
         formatter = logging.Formatter(
             fmt=self.logging_format.format(spider_name=self.name), datefmt=self.logging_date_format

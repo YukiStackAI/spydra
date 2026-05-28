@@ -1,12 +1,12 @@
 # Performance Benchmarks
 
-Scrapling isn't just powerful - it's also blazing fast. The following benchmarks compare Scrapling's parser with the latest versions of other popular libraries.
+Spydra isn't just powerful - it's also blazing fast. The following benchmarks compare Spydra's parser with the latest versions of other popular libraries.
 
 ### Text Extraction Speed Test (5000 nested elements)
 
-| # |      Library      | Time (ms) | vs Scrapling | 
+| # |      Library      | Time (ms) | vs Spydra | 
 |---|:-----------------:|:---------:|:------------:|
-| 1 |     Scrapling     |   2.02    |     1.0x     |
+| 1 |     Spydra     |   2.02    |     1.0x     |
 | 2 |   Parsel/Scrapy   |   2.04    |     1.01     |
 | 3 |     Raw Lxml      |   2.54    |    1.257     |
 | 4 |      PyQuery      |   24.17   |     ~12x     |
@@ -18,11 +18,11 @@ Scrapling isn't just powerful - it's also blazing fast. The following benchmarks
 
 ### Element Similarity & Text Search Performance
 
-Scrapling's adaptive element finding capabilities significantly outperform alternatives:
+Spydra's adaptive element finding capabilities significantly outperform alternatives:
 
-| Library     | Time (ms) | vs Scrapling |
+| Library     | Time (ms) | vs Spydra |
 |-------------|:---------:|:------------:|
-| Scrapling   |   2.39    |     1.0x     |
+| Spydra   |   2.39    |     1.0x     |
 | AutoScraper |   12.45   |    5.209x    |
 
-> All benchmarks represent averages of 100+ runs. See [benchmarks.py](https://github.com/D4Vinci/Scrapling/blob/main/benchmarks.py) for methodology.
+> All benchmarks represent averages of 100+ runs. See [benchmarks.py](https://github.com/D4Vinci/Spydra/blob/main/benchmarks.py) for methodology.

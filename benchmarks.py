@@ -12,7 +12,7 @@ from parsel import Selector
 from pyquery import PyQuery as pq
 from selectolax.parser import HTMLParser
 
-from scrapling import Selector as ScraplingSelector
+from spydra import Selector as SpydraSelector
 
 large_html = (
     "<html><body>" + '<div class="item">' * 5000 + "</div>" * 5000 + "</body></html>"
@@ -49,7 +49,7 @@ def test_lxml():
         e.text
         for e in etree.fromstring(
             large_html,
-            # Scrapling and Parsel use the same parser inside, so this is just to make it fair
+            # Spydra and Parsel use the same parser inside, so this is just to make it fair
             parser=html.HTMLParser(recover=True, huge_tree=True),
         ).cssselect(".item")
     ]
@@ -71,11 +71,11 @@ def test_pyquery():
 
 
 @benchmark
-def test_scrapling():
+def test_spydra():
     # No need to do `.extract()` like parsel to extract text
     # Also, this is faster than `[t.text for t in Selector(large_html, adaptive=False).css('.item')]`
     # for obvious reasons, of course.
-    return ScraplingSelector(large_html, adaptive=False).css(".item::text").getall()
+    return SpydraSelector(large_html, adaptive=False).css(".item::text").getall()
 
 
 @benchmark
@@ -98,18 +98,18 @@ def test_selectolax():
 def display(results):
     # Sort and display results
     sorted_results = sorted(results.items(), key=lambda x: x[1])  # Sort by time
-    scrapling_time = results["Scrapling"]
+    spydra_time = results["Spydra"]
     print("\nRanked Results (fastest to slowest):")
-    print(f" i. {'Library tested':<18} | {'avg. time (ms)':<15} | vs Scrapling")
+    print(f" i. {'Library tested':<18} | {'avg. time (ms)':<15} | vs Spydra")
     print("-" * 50)
     for i, (test_name, test_time) in enumerate(sorted_results, 1):
-        compare = round(test_time / scrapling_time, 3)
+        compare = round(test_time / spydra_time, 3)
         print(f" {i}. {test_name:<18} | {str(test_time):<15} | {compare}")
 
 
 @benchmark
-def test_scrapling_text(request_html):
-    return ScraplingSelector(request_html, adaptive=False).find_by_text("Tipping the Velvet", first_match=True, clean_match=False).find_similar(ignore_attributes=["title"])
+def test_spydra_text(request_html):
+    return SpydraSelector(request_html, adaptive=False).find_by_text("Tipping the Velvet", first_match=True, clean_match=False).find_similar(ignore_attributes=["title"])
 
 
 @benchmark
@@ -125,7 +125,7 @@ if __name__ == "__main__":
     results1 = {
         "Raw Lxml": test_lxml(),
         "Parsel/Scrapy": test_parsel(),
-        "Scrapling": test_scrapling(),
+        "Spydra": test_spydra(),
         "Selectolax": test_selectolax(),
         "PyQuery": test_pyquery(),
         "BS4 with Lxml": test_bs4_lxml(),
@@ -140,7 +140,7 @@ if __name__ == "__main__":
         " Benchmark: Speed of searching for an element by text content, and retrieving the text of similar elements\n"
     )
     results2 = {
-        "Scrapling": test_scrapling_text(req.text),
+        "Spydra": test_spydra_text(req.text),
         "AutoScraper": test_autoscraper(req.text),
     }
     display(results2)
