@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/YukiStackAI/spydra/main/images/spydra-logo.png" width="180" alt="Spydra Logo"/>
+<img src="docs/assets/logo.png" width="180" alt="Spydra Logo"/>
 
 # 🕷 Spydra
 
