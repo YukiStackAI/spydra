@@ -6,10 +6,16 @@ on:
     types: [closed]
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g., v2.0.0)'
+        required: true
+        type: string
 
 jobs:
   create-release-and-publish:
-    if: github.event.pull_request.merged == true
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     environment:
       name: PyPI
@@ -22,16 +28,27 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get PR title
+      - name: Get Version Title
         id: pr_title
-        run: echo "title=${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "title=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "title=${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Save PR body to file
+      - name: Save Release Body to file
         uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
-            fs.writeFileSync('pr_body.md', context.payload.pull_request.body || '');
+            let body = '';
+            if (context.eventName === 'pull_request') {
+              body = context.payload.pull_request.body || '';
+            } else {
+              body = 'Release triggered manually via workflow_dispatch';
+            }
+            fs.writeFileSync('pr_body.md', body);
 
       - name: Extract version
         id: extract_version
